@@ -47,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        assert bundle != null;
         String email = bundle.getString("email");
         String name = bundle.getString("email");//TODO
+        assert email != null;
         Log.d("debugRemi", email);
         TextView txtMail = findViewById(R.id.txt_user_email);
         Log.d("debugRemi", String.valueOf(txtMail == null));
