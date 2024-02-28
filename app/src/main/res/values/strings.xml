@@ -23,6 +23,4 @@
     <string name="badsyntax">Bad syntax</string>
     <string name="wrongcredentials">Invalid credentials</string>
     <string name="registerNew">Register an account</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>
