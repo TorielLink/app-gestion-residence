@@ -1,14 +1,14 @@
-package iut.dam.gestionresidence.ui.mon_habitat;
+package iut.dam.gestionresidence.ui.my_habitat;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MonHabitatViewModel extends ViewModel {
+public class MyHabitatViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public MonHabitatViewModel() {
+    public MyHabitatViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is MON HABITAT fragment");
     }

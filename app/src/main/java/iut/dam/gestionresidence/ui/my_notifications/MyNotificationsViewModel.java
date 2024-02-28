@@ -1,14 +1,14 @@
-package iut.dam.gestionresidence.ui.mes_notifications;
+package iut.dam.gestionresidence.ui.my_notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MesNotificationsViewModel extends ViewModel {
+public class MyNotificationsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public MesNotificationsViewModel() {
+    public MyNotificationsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is MES NOTIFICATIONS fragment");
     }

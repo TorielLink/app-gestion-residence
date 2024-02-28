@@ -14,7 +14,11 @@
             android:title="@string/menu_liste_habitat" />
         <item
             android:id="@+id/nav_mes_notifications"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_third"
             android:title="@string/menu_mes_notifications" />
+        <item
+            android:id="@+id/nav_mes_preferences"
+            android:icon="@drawable/ic_menu_fourth"
+            android:title="@string/menu_mes_preferences" />
     </group>
 </menu>

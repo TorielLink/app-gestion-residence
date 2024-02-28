@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui.mes_notifications;
+package iut.dam.gestionresidence.ui.my_preferences;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import iut.dam.gestionresidence.databinding.FragmentMesNotificationsBinding;
+import iut.dam.gestionresidence.databinding.FragmentMyPreferencesBinding;
 
-public class MesNotificationsFragment extends Fragment {
+public class MyPreferencesFragment extends Fragment {
 
-    private FragmentMesNotificationsBinding binding;
+    private FragmentMyPreferencesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MesNotificationsViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(MesNotificationsViewModel.class);
+        MyPreferencesViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(MyPreferencesViewModel.class);
 
-        binding = FragmentMesNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentMyPreferencesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMesNotifications;
+        final TextView textView = binding.textMyPreferences;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

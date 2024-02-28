@@ -1,14 +1,14 @@
-package iut.dam.gestionresidence.ui.mes_preferences;
+package iut.dam.gestionresidence.ui.my_preferences;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MesPreferencesViewModel extends ViewModel {
+public class MyPreferencesViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public MesPreferencesViewModel() {
+    public MyPreferencesViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is MES PREFERENCES fragment");
     }
