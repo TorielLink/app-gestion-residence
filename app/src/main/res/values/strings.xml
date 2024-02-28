@@ -10,4 +10,5 @@
     <string name="menu_mon_habitat">My Habitat</string>
     <string name="menu_liste_habitat">List of Habitats</string>
     <string name="menu_mes_notifications">My Notification</string>
+    <string name="menu_mes_preferences">My preferences</string>
 </resources>
