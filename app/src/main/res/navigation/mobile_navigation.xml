@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/nav_mon_habitat"
         android:name="iut.dam.gestionresidence.ui.my_habitat.MyHabitatFragment"
-        android:label="@string/menu_mon_habitat"
+        android:label="@string/menu_my_habitat"
         tools:layout="@layout/fragment_my_habitat" />
 
     <fragment
         android:id="@+id/nav_liste_habitants"
         android:name="iut.dam.gestionresidence.ui.list_habitats.ListHabitatsFragment"
-        android:label="@string/menu_liste_habitat"
+        android:label="@string/menu_list_habitats"
         tools:layout="@layout/fragment_list_habitats" />
 
     <fragment
         android:id="@+id/nav_mes_notifications"
         android:name="iut.dam.gestionresidence.ui.my_preferences.MyPreferencesFragment"
-        android:label="@string/menu_mes_notifications"
+        android:label="@string/menu_my_notifications"
         tools:layout="@layout/fragment_my_notifications" />
 </navigation>

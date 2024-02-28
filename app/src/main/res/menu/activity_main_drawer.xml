@@ -7,18 +7,18 @@
         <item
             android:id="@+id/nav_mon_habitat"
             android:icon="@drawable/ic_menu_first"
-            android:title="@string/menu_mon_habitat" />
+            android:title="@string/menu_my_habitat" />
         <item
             android:id="@+id/nav_liste_habitants"
             android:icon="@drawable/ic_menu_second"
-            android:title="@string/menu_liste_habitat" />
+            android:title="@string/menu_list_habitats" />
         <item
             android:id="@+id/nav_mes_notifications"
             android:icon="@drawable/ic_menu_third"
-            android:title="@string/menu_mes_notifications" />
+            android:title="@string/menu_my_notifications" />
         <item
             android:id="@+id/nav_mes_preferences"
             android:icon="@drawable/ic_menu_fourth"
-            android:title="@string/menu_mes_preferences" />
+            android:title="@string/menu_my_preferences" />
     </group>
 </menu>

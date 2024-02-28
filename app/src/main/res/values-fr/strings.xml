@@ -5,9 +5,9 @@
     <string name="nav_drawer_close">Fermer le menu de navigation</string>
     <string name="nav_header_desc">Entete de navigation</string>
     <string name="action_settings">Paramètres</string>
-    <string name="menu_mon_habitat">Mon habitat</string>
-    <string name="menu_liste_habitat">Liste des habitats</string>
-    <string name="menu_mes_notifications">Mes notifications</string>
+    <string name="menu_my_habitat">Mon habitat</string>
+    <string name="menu_list_habitats">Liste des habitats</string>
+    <string name="menu_my_notifications">Mes notifications</string>
     <string name="connect">Se connecter</string>
     <string name="connectPage">Page de connexion</string>
     <string name="password">Mot de passe</string>
@@ -19,4 +19,5 @@
     <string name="badsyntax">Mauvaise syntaxe</string>
     <string name="wrongcredentials">Mauvais identifiants</string>
     <string name="registerNew">Enregister un nouveau compte</string>
+    <string name="menu_my_preferences">Mes préférences</string>
 </resources>
