@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_mon_habitat">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_mon_habitat"
         android:name="iut.dam.gestionresidence.ui.mon_habitat.MonHabitatFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/menu_mon_habitat"
+        tools:layout="@layout/fragment_mon_habitat" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_liste_habitants"
         android:name="iut.dam.gestionresidence.ui.liste_habitants.ListeHabitantsFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:label="@string/menu_liste_habitat"
+        tools:layout="@layout/fragment_liste_habitants" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_mes_notifications"
         android:name="iut.dam.gestionresidence.ui.mes_preferences.MesPreferencesFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/menu_mes_notifications"
+        tools:layout="@layout/fragment_mes_notifications" />
 </navigation>

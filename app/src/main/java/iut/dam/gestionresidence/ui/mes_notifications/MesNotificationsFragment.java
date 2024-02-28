@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import iut.dam.gestionresidence.databinding.FragmentSlideshowBinding;
+import iut.dam.gestionresidence.databinding.FragmentMesNotificationsBinding;
 
 public class MesNotificationsFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentMesNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         MesNotificationsViewModel slideshowViewModel =
                 new ViewModelProvider(this).get(MesNotificationsViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentMesNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
+        final TextView textView = binding.textMesNotifications;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
