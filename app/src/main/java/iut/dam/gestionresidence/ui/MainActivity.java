@@ -1,8 +1,11 @@
 package iut.dam.gestionresidence.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +44,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String email = bundle.getString("email");
+        String name = bundle.getString("email");//TODO
+        Log.d("debugRemi", email);
+        TextView txtMail = findViewById(R.id.txt_user_email);
+        Log.d("debugRemi", String.valueOf(txtMail == null));
+        //txtMail.setText(email);
+        TextView txtName = findViewById(R.id.txt_user_name);
+        //txtName.setText(name);
+
     }
 
     @Override
