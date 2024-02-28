@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence;
+package iut.dam.gestionresidence.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
