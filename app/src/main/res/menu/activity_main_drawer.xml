@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_mon_habitat"
+            android:id="@+id/nav_my_habitat"
             android:icon="@drawable/ic_menu_first"
             android:title="@string/menu_my_habitat" />
         <item
-            android:id="@+id/nav_liste_habitants"
+            android:id="@+id/nav_list_habitats"
             android:icon="@drawable/ic_menu_second"
             android:title="@string/menu_list_habitats" />
         <item
-            android:id="@+id/nav_mes_notifications"
+            android:id="@+id/nav_my_notifications"
             android:icon="@drawable/ic_menu_third"
             android:title="@string/menu_my_notifications" />
         <item
-            android:id="@+id/nav_mes_preferences"
+            android:id="@+id/nav_my_preferences"
             android:icon="@drawable/ic_menu_fourth"
             android:title="@string/menu_my_preferences" />
     </group>
