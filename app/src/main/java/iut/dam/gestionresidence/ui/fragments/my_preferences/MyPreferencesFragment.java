@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui.my_preferences;
+package iut.dam.gestionresidence.ui.fragments.my_preferences;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

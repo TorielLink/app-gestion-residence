@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui;
+package iut.dam.gestionresidence;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui.my_habitat;
+package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,23 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import iut.dam.gestionresidence.databinding.FragmentMyHabitatBinding;
+import iut.dam.gestionresidence.databinding.FragmentListHabitatsBinding;
 
+public class ListHabitatsFragment extends Fragment {
 
-public class MyHabitatFragment extends Fragment {
-
-    private FragmentMyHabitatBinding binding;
+    private FragmentListHabitatsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MyHabitatViewModel homeViewModel =
-                new ViewModelProvider(this).get(MyHabitatViewModel.class);
+        ListHabitatsViewModel galleryViewModel =
+                new ViewModelProvider(this).get(ListHabitatsViewModel.class);
 
-        binding = FragmentMyHabitatBinding.inflate(inflater, container, false);
+        binding = FragmentListHabitatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMyHabitat;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textListHabitats;
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

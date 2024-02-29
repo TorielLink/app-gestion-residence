@@ -7,7 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import iut.dam.gestionresidence.R;
-import iut.dam.gestionresidence.ui.LoginActivity;
+import iut.dam.gestionresidence.LoginActivity;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {

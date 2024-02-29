@@ -1,16 +1,16 @@
-package iut.dam.gestionresidence.ui.my_notifications;
+package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MyNotificationsViewModel extends ViewModel {
+public class ListHabitatsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public MyNotificationsViewModel() {
+    public ListHabitatsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is MES NOTIFICATIONS fragment");
+        mText.setValue("This is LISTE DES HABITANTS fragment");
     }
 
     public LiveData<String> getText() {

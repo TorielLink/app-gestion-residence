@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui.my_notifications;
+package iut.dam.gestionresidence.ui.fragments.my_notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

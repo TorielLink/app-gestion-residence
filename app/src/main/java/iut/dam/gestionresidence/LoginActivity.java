@@ -1,4 +1,4 @@
-package iut.dam.gestionresidence.ui;
+package iut.dam.gestionresidence;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.adapter.CountryAdapter;
 import iut.dam.gestionresidence.components.Country;
 
