@@ -3,6 +3,7 @@ package iut.dam.gestionresidence;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
+import iut.dam.gestionresidence.ui.fragments.about.AboutDialogFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +67,19 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_about) {
+            AboutDialogFragment aboutDialog = new AboutDialogFragment();
+            aboutDialog.show(getSupportFragmentManager(), "about_dialog");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -4,7 +4,7 @@
     <string name="nav_drawer_open">Ouvrir le menu de navigation</string>
     <string name="nav_drawer_close">Fermer le menu de navigation</string>
     <string name="nav_header_desc">Entete de navigation</string>
-    <string name="action_settings">Paramètres</string>
+    <string name="action_about">À propos</string>
 
     <string name="menu_my_habitat">Mon habitat</string>
     <string name="menu_list_habitats">Liste des habitats</string>
@@ -12,14 +12,16 @@
     <string name="menu_my_preferences">Mes préférences</string>
 
     <string name="connect">Se connecter</string>
-    <string name="connectPage">Page de connexion</string>
+    <string name="connect_page">Page de connexion</string>
     <string name="password">Mot de passe</string>
-    <string name="useraccount">Compte utilisateur</string>
     <string name="flag">Drapeau</string>
     <string name="create_account">Créer un compte</string>
-    <string name="lostPassword">J\'ai oublié mon mot de passe</string>
-    <string name="ConnectGoogle">Se connecter avec Google</string>
-    <string name="badsyntax">Mauvaise syntaxe</string>
-    <string name="wrongcredentials">Mauvais identifiants</string>
-    <string name="registerNew">Enregister un nouveau compte</string>
+    <string name="user_account">Compte utilisateur</string>
+    <string name="lost_password">J\'ai oublié mon mot de passe</string>
+    <string name="connect_google">Se connecter avec Google</string>
+    <string name="bad_syntax">Mauvaise syntaxe</string>
+    <string name="wrong_credentials">Mauvais identifiants</string>
+    <string name="register_new">Enregister un nouveau compte</string>
+    <string name="txt_about">Cette application a été développée par Clothilde Proux, Rémi Lemaire et
+        Esteban Cardaillac Rodriguez et est destinée à la gestion d\'une résidence.</string>
 </resources>

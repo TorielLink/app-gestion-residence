@@ -42,11 +42,11 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(LoginActivity.this, R.string.wrongcredentials, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, R.string.wrong_credentials, Toast.LENGTH_SHORT).show();
                 }
             }
             else {
-                Toast.makeText(LoginActivity.this, R.string.badsyntax, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, R.string.bad_syntax, Toast.LENGTH_SHORT).show();
             }
         });
 

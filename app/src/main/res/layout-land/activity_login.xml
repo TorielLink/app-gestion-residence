@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,7 +10,7 @@
         android:layout_height="200dp"
         android:layout_centerVertical="true"
         android:layout_marginBottom="50dp"
-        android:contentDescription="@string/useraccount"
+        android:contentDescription="@string/user_account"
         android:src="@drawable/user_logo"
         tools:srcCompat="@drawable/user_logo" />
 
@@ -21,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:text="@string/connectPage"
+        android:text="@string/connect_page"
         android:textSize="20sp" />
 
     <TextView
@@ -72,7 +71,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/editTextTextPassword"
         android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/profilePictureGeneric" />
+        android:layout_toEndOf="@id/profilePictureGeneric" />
 
     <Button
         android:id="@+id/button"
@@ -88,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/button"
         android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@id/button"
+        android:layout_toEndOf="@id/button"
         android:text="@string/create_account" />
 
     <Button
@@ -97,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button2"
         android:layout_centerHorizontal="true"
-        android:text="@string/lostPassword" />
+        android:text="@string/lost_password" />
 
     <Button
         android:id="@+id/button4"
@@ -105,6 +104,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/button3"
         android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@id/button3"
-        android:text="@string/ConnectGoogle" />
+        android:layout_toEndOf="@id/button3"
+        android:text="@string/connect_google" />
 </RelativeLayout>
