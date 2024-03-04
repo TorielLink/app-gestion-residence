@@ -1,5 +1,6 @@
 package iut.dam.gestionresidence;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private ProgressDialog pDialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //TODO : déléguer
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtName = findViewById(R.id.txt_user_name);
         //txtName.setText(name);
 
+        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php";
     }
 
     @Override
@@ -87,5 +90,22 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void getRemoteHabitats() {
+        pDialog = new ProgressDialog(this); pDialog.setMessage("Getting list of habitats..."); pDialog.setIndeterminate(true); pDialog.setCancelable(false);
+        pDialog.show();
+        String urlString = "http://[server]/powerhome_server/getHabitats.php"; Ion.with(this)
+                .load(urlString)
+                .asString()
+                .setCallback(new FutureCallback<String>() {
+                    @Override
+                    public void onCompleted(Exception e, String result) { pDialog.dismiss();
+                        if(result == null)
+                            Log.d(TAG, "No response from the server!!!");
+                        else {
+                            // Traitement de result
+                        } }
+                });
     }
 }
