@@ -1,5 +1,7 @@
 package iut.dam.gestionresidence;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -61,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
         //txtMail.setText(email);
         TextView txtName = findViewById(R.id.txt_user_name);
         //txtName.setText(name);
-
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php";
     }
 
     @Override
@@ -93,19 +96,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getRemoteHabitats() {
-        pDialog = new ProgressDialog(this); pDialog.setMessage("Getting list of habitats..."); pDialog.setIndeterminate(true); pDialog.setCancelable(false);
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Getting list of habitats...");
+        pDialog.setIndeterminate(true);
+        pDialog.setCancelable(false);
         pDialog.show();
-        String urlString = "http://[server]/powerhome_server/getHabitats.php"; Ion.with(this)
+        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php";
+        Ion.with(this)
                 .load(urlString)
                 .asString()
                 .setCallback(new FutureCallback<String>() {
                     @Override
-                    public void onCompleted(Exception e, String result) { pDialog.dismiss();
+                    public void onCompleted(Exception e, String result) {
+                        pDialog.dismiss();
                         if(result == null)
                             Log.d(TAG, "No response from the server!!!");
                         else {
-                            // Traitement de result
-                        } }
+                            //TODO : Traitement de result
+                        }
+                    }
+                });
+    }
+
+    public void addRemoteHabitat() {
+        String urlString = "http://remi-lem.alwaysdata.net/amenagor/addHabitat.php?floor=X";
+        Ion.with(this)
+                .load(urlString)
+                .asString()
+                .withResponse()
+                .setCallback(new FutureCallback<Response<String>>() {
+                    @Override
+                    public void onCompleted(Exception e, Response<String> response) {
+                        if(response.getHeaders().code() == 200) { /*TODO*/ }
+                        //TODO
+                    }
                 });
     }
 }
