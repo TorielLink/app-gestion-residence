@@ -13,6 +13,11 @@ public class Habitat {
     int floor;
     double area;
 
+    public Habitat(int id, User resident, int floor, double area, List<Appliance> appliances) {
+        this(id, resident, floor, area);
+        this.appliances = appliances;
+    }
+
     public List<Appliance> getAppliances() {
         return appliances;
     }
