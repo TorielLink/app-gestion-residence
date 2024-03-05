@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnForgotPwd.setOnClickListener(view -> {
-            Intent myIntent = new Intent(this, RegisterActivity.class);
+            Intent myIntent = new Intent(this, ForgottenPasswordActivity.class);
             startActivity(myIntent);
         });
 

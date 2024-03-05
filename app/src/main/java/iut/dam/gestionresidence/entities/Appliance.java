@@ -1,6 +1,22 @@
 package iut.dam.gestionresidence.entities;
 
 public class Appliance {
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public int getWattage() {
+        return wattage;
+    }
+
     int id;
     String name;
     String reference;

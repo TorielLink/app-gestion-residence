@@ -12,6 +12,11 @@ public class Habitat {
     User resident;
     int floor;
     double area;
+
+    public List<Appliance> getAppliances() {
+        return appliances;
+    }
+
     List<Appliance> appliances;
 
     public Habitat(int id, User resident, int floor, double area) {
@@ -47,10 +52,6 @@ public class Habitat {
 
     public String getFloor() {
         return String.valueOf(this.floor);
-    }
-
-    public String  getEquipment() {
-        return String.valueOf(this.appliances.size());
     }
 
     public static Habitat getFromJson(String json){

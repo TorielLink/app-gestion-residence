@@ -59,9 +59,9 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
 
         Habitat currentItem = getItem(position);
 
-        /*if (currentItem != null) {
-            residentTV.setText(currentItem.getResidentName());
-            numberFloorTV.setText(Integer.toString(currentItem.getFloor()));
+        if (currentItem != null) {
+            residentTV.setText(currentItem.getName());
+            numberFloorTV.setText(currentItem.getFloor());
             //Log.d("myApp", Integer.toString(currentItem.getFloor()));
 
             int nb = 0;
@@ -71,10 +71,8 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
                     i.setVisibility(View.INVISIBLE);
                 }
             }
-
             applianceTV.setText(currentItem.getAppliances().size() + " équipements");
         }
-
         return convertView;
     }
 
@@ -84,8 +82,7 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
                 return true;
             }
         }
-        return false;*/
-        return convertView;
+        return false;
     }
 
     public static abstract class OnItemClickListener implements AdapterView.OnItemClickListener {

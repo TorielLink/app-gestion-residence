@@ -32,5 +32,8 @@
         <activity android:name=".RegisterActivity"
             android:theme="@style/Theme.GestionResidence.NoActionBar">
         </activity>
+        <activity android:name=".ForgottenPasswordActivity"
+            android:theme="@style/Theme.GestionResidence.NoActionBar">
+        </activity>
     </application>
 </manifest>

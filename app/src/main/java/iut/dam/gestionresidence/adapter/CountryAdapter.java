@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-//import iut.dam.gestionresidence.components.Country;
+import iut.dam.gestionresidence.entities.Country;
 import iut.dam.gestionresidence.R;
 
-/*public class CountryAdapter extends ArrayAdapter<Country> {
+public class CountryAdapter extends ArrayAdapter<Country> {
 
     public CountryAdapter(Context context, List<Country> countryList) {
         super(context, 0, countryList);
@@ -49,4 +49,4 @@ import iut.dam.gestionresidence.R;
 
         return convertView;
     }
-}*/
+}
