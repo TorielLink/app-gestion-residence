@@ -18,12 +18,20 @@
     <string name="email" translatable="false">Email</string>
     <string name="user_account">UserAccount</string>
     <string name="flag">flag</string>
-    <string name="create_account">Create account</string>
+    <string name="sign_account">Sign Up</string>
+    <string name="login_account">Log In</string>
     <string name="lost_password">I forgot my password</string>
     <string name="connect_google">Connect with Google</string>
     <string name="bad_syntax">Bad syntax</string>
     <string name="wrong_credentials">Invalid credentials</string>
+
+    <!-- Register -->
     <string name="register_new">Register an account</string>
+
+    <!-- Forgotten Password -->
+    <string name="forgotten_password">Oh no, I don\'t remember my password anymore…</string>
+
+    <!-- About -->
     <string name="txt_about">This application has been developed by Clothilde Proux, Rémi Lemaire
         and Esteban Cardaillac Rodriguez and is designed for managing a residence.</string>
 </resources>

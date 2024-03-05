@@ -15,13 +15,21 @@
     <string name="connect_page">Page de connexion</string>
     <string name="password">Mot de passe</string>
     <string name="flag">Drapeau</string>
-    <string name="create_account">Créer un compte</string>
+    <string name="sign_account">Créer un compte</string>
+    <string name="login_account">Se loger</string>
     <string name="user_account">Compte utilisateur</string>
     <string name="lost_password">J\'ai oublié mon mot de passe</string>
     <string name="connect_google">Se connecter avec Google</string>
     <string name="bad_syntax">Mauvaise syntaxe</string>
     <string name="wrong_credentials">Mauvais identifiants</string>
+
+    <!-- Register -->
     <string name="register_new">Enregister un nouveau compte</string>
+
+    <!-- Forgotten Password -->
+    <string name="forgotten_password">Oh non, je ne me souviens plus de mon mot de passe…</string>
+
+    <!-- About -->
     <string name="txt_about">Cette application a été développée par Clothilde Proux, Rémi Lemaire et
         Esteban Cardaillac Rodriguez et est destinée à la gestion d\'une résidence.</string>
 </resources>

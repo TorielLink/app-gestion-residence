@@ -1,5 +1,6 @@
 package iut.dam.gestionresidence.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,8 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import iut.dam.gestionresidence.components.Appliance;
-import iut.dam.gestionresidence.components.Habitat;
+import iut.dam.gestionresidence.entities.Appliance;
+import iut.dam.gestionresidence.entities.Habitat;
 import iut.dam.gestionresidence.R;
 
 public class HabitatAdapter extends ArrayAdapter<Habitat> {
@@ -27,15 +28,16 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
 
+    @SuppressLint("SetTextI18n")
     private View initView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_habitat, parent, false);
@@ -45,25 +47,25 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
         TextView applianceTV = convertView.findViewById(R.id.applianceTV);
         TextView numberFloorTV = convertView.findViewById(R.id.numberFloorTV);
 
-        ArrayList<ImageView> applianciesList = new ArrayList<>();
+        ArrayList<ImageView> appliancesList = new ArrayList<>();
         ImageView appliance1IV = convertView.findViewById(R.id.appliance1IV);
-        applianciesList.add(appliance1IV);
+        appliancesList.add(appliance1IV);
         ImageView appliance2IV = convertView.findViewById(R.id.appliance2IV);
-        applianciesList.add(appliance2IV);
+        appliancesList.add(appliance2IV);
         ImageView appliance3IV = convertView.findViewById(R.id.appliance3IV);
-        applianciesList.add(appliance3IV);
+        appliancesList.add(appliance3IV);
         ImageView appliance4IV = convertView.findViewById(R.id.appliance4IV);
-        applianciesList.add(appliance4IV);
+        appliancesList.add(appliance4IV);
 
         Habitat currentItem = getItem(position);
 
-        if (currentItem != null) {
+        /*if (currentItem != null) {
             residentTV.setText(currentItem.getResidentName());
             numberFloorTV.setText(Integer.toString(currentItem.getFloor()));
             //Log.d("myApp", Integer.toString(currentItem.getFloor()));
 
             int nb = 0;
-            for(ImageView i : applianciesList){
+            for(ImageView i : appliancesList){
                 nb++;
                 if(!containsAppliance(nb, currentItem.getAppliances())){
                     i.setVisibility(View.INVISIBLE);
@@ -82,7 +84,8 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
                 return true;
             }
         }
-        return false;
+        return false;*/
+        return convertView;
     }
 
     public static abstract class OnItemClickListener implements AdapterView.OnItemClickListener {

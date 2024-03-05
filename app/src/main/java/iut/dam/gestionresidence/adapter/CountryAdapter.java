@@ -8,24 +8,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
-import iut.dam.gestionresidence.components.Country;
+//import iut.dam.gestionresidence.components.Country;
 import iut.dam.gestionresidence.R;
 
-public class CountryAdapter extends ArrayAdapter<Country> {
+/*public class CountryAdapter extends ArrayAdapter<Country> {
 
     public CountryAdapter(Context context, List<Country> countryList) {
         super(context, 0, countryList);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
 
@@ -46,4 +49,4 @@ public class CountryAdapter extends ArrayAdapter<Country> {
 
         return convertView;
     }
-}
+}*/

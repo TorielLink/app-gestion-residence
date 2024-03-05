@@ -4,16 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import iut.dam.gestionresidence.adapter.CountryAdapter;
-import iut.dam.gestionresidence.components.Country;
 
 public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +14,12 @@ public class LoginActivity extends AppCompatActivity {
         setTitle("Page de connexion");
         setContentView(R.layout.activity_login);
 
-        EditText etEmail = findViewById(R.id.editTextTextEmailAddress);
-        EditText etPassword = findViewById(R.id.editTextTextPassword);
-        Button btnLogin = findViewById(R.id.button);
-        Button btnCreateAcc = findViewById(R.id.button2);
-
-        Spinner spinner = findViewById(R.id.spinner);
+        EditText etEmail = findViewById(R.id.editTextEmailAddress);
+        EditText etPassword = findViewById(R.id.editTextPassword);
+        Button btnLogin = findViewById(R.id.btnLoginAccount);
+        Button btnCreateAcc = findViewById(R.id.btnCreateAccount);
+        Button btnGoogle = findViewById(R.id.btnConnectGoogle);
+        Button btnForgotPwd = findViewById(R.id.btnForgottenPassword);
 
         btnLogin.setOnClickListener(view -> {
             String enteredEmail = etEmail.getText().toString().trim();
@@ -55,12 +48,13 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(myIntent);
         });
 
+        btnForgotPwd.setOnClickListener(view -> {
+            Intent myIntent = new Intent(this, RegisterActivity.class);
+            startActivity(myIntent);
+        });
 
-        List<Country> items = new ArrayList<>();
-        items.add(new Country(R.drawable.france_flag, "France"));
-        items.add(new Country(R.drawable.sweden_flag, "Suede"));
-
-        CountryAdapter adapter = new CountryAdapter(this, items);
-        spinner.setAdapter(adapter);
+        btnGoogle.setOnClickListener(view -> {
+            // TODO
+        });
     }
 }
