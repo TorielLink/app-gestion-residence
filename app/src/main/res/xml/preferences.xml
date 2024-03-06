@@ -5,24 +5,23 @@
 
         <CheckBoxPreference
             android:key="pref_key_notification"
-            android:title="Notifications"
-            android:summary="Enable/disable notifications" />
+            android:title="@string/notifications"
+            android:summary="@string/notif_config" />
 
         <ListPreference
             android:key="pref_key_language"
-            android:title="Language"
-            android:summary="Select your preferred language"
+            android:title="@string/language"
+            android:summary="@string/txt_select_language"
             android:entries="@array/languages"
             android:entryValues="@array/language_values"
-            android:defaultValue="en" />
+            android:defaultValue="fr" />
 
         <ListPreference
             android:key="pref_key_theme"
-            android:title="Theme"
-            android:summary="Select your preferred theme"
+            android:title="@string/theme"
+            android:summary="@string/txt_select_theme"
             android:entries="@array/themes"
             android:entryValues="@array/theme_values"
             android:defaultValue="light" />
-
     </PreferenceCategory>
 </androidx.preference.PreferenceScreen>
