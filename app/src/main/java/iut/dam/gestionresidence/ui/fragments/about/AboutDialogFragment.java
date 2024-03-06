@@ -10,7 +10,6 @@ import androidx.fragment.app.DialogFragment;
 import iut.dam.gestionresidence.R;
 
 public class AboutDialogFragment extends DialogFragment {
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

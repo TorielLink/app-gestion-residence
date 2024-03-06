@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GestionResidence</string>
+    <string name="app_name">GestiónResidencia</string>
     <string name="nav_drawer_open">Abrir el menu de navegación</string>
     <string name="nav_drawer_close">Cerar el menu de navegación</string>
     <string name="nav_header_desc">Encabezado de navegación</string>
     <string name="action_about">A proposito</string>
     <string name="menu_my_habitat">Mi hábitat</string>
-    <string name="menu_list_habitats">lista de hábitats</string>
+    <string name="menu_list_habitats">Lista de hábitats</string>
     <string name="menu_my_notifications">Mis notificationes</string>
     <string name="menu_my_preferences">Mis preferencias</string>
     <string name="connect_page">Pagina de connexion</string>
@@ -21,8 +21,16 @@
     <string name="wrong_credentials">Mal identificador</string>
     <string name="register_new">Registre una nueva cuenta</string>
     <string name="forgotten_password">Olvide mi contraseña</string>
+    <string name="password_message">Su contra contraseña es : %s</string>
+    <string name="account_inexistant">Esta cuenta no existe. Por favor crea uno.</string>
     <string name="txt_about">Esta aplicación fue desarrollada por Clothilde Proux, Rémi Lemaire y Esteban Cardaillac Rodríguez y está destinado a la gestión de una residencia.</string>
     <string name="first_name">Nombre</string>
     <string name="last_name">Apellido</string>
     <string name="validate">validar</string>
+    <string name="language">Lengua</string>
+    <string name="txt_select_language">Elige une lengua</string>
+    <string name="theme">Thema</string>
+    <string name="txt_select_theme">Elige un thema</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="notif_config">Activar/Desactivar las notificaciones</string>
 </resources>
