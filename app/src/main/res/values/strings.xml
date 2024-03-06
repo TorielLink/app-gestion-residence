@@ -34,4 +34,25 @@
     <!-- About -->
     <string name="txt_about">This application has been developed by Clothilde Proux, Rémi Lemaire
         and Esteban Cardaillac Rodriguez and is designed for managing a residence.</string>
+
+    <!-- Langues -->
+    <string-array name="languages">
+        <item>English</item>
+        <item>Français</item>
+    </string-array>
+
+    <string-array name="language_values">
+        <item>en</item>
+        <item>fr</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 </resources>
