@@ -39,8 +39,8 @@ public class ForgottenPasswordActivity  extends AppCompatActivity {
                         jsonObject = new JSONObject(result);
                         String password = jsonObject.getString("password");
                         new AlertDialog.Builder(this)
-                                .setTitle("Password")//TODO LOCALIZE
-                                .setMessage("Your password is: " + password)
+                                .setTitle(getString(R.string.password))
+                                .setMessage(getString(R.string.password_message, password))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                     finish();
@@ -49,8 +49,8 @@ public class ForgottenPasswordActivity  extends AppCompatActivity {
                                 .show();
                     } catch (JSONException ex) {
                         new AlertDialog.Builder(this)
-                                .setTitle("Password")//TODO LOCALIZE
-                                .setMessage("Your account does not exist")
+                                .setTitle(getString(R.string.password))
+                                .setMessage(getString(R.string.account_inexistant))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                     finish();
