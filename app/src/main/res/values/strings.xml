@@ -30,6 +30,11 @@
 
     <!-- Forgotten Password -->
     <string name="forgotten_password">Password forgotten</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="validate">Validate</string>
+    <string name="password_message">Your password is: %s</string>
+    <string name="account_inexistant">This account does not exists. Please create one.</string>
 
     <!-- About -->
     <string name="txt_about">This application has been developed by Clothilde Proux, Rémi Lemaire
@@ -39,11 +44,13 @@
     <string-array name="languages">
         <item>English</item>
         <item>Français</item>
+        <item>Español</item>
     </string-array>
 
     <string-array name="language_values">
         <item>en</item>
         <item>fr</item>
+        <item>es</item>
     </string-array>
 
     <string-array name="themes">
@@ -55,9 +62,12 @@
         <item>light</item>
         <item>dark</item>
     </string-array>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="validate">Validate</string>
-    <string name="password_message">Your password is: %s</string>
-    <string name="account_inexistant">This account does not exists. Please create one.</string>
+
+    <!-- Preferences -->
+    <string name="language">Language</string>
+    <string name="txt_select_language">Select your preferred language</string>
+    <string name="theme">Theme</string>
+    <string name="txt_select_theme">Select your preferred theme</string>
+    <string name="notifications">Notifications</string>
+    <string name="notif_config">Enable/disable notifications</string>
 </resources>
