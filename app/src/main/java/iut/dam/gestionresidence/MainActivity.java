@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         assert key != null;
         if (key.equals("pref_key_language")) {
-            String language = sharedPreferences.getString(key, "en"); // "en" is the default language
+            String language = sharedPreferences.getString(key, "fr");
             setLocale(language);
             recreate(); // Reload the activity to apply the language change
         }

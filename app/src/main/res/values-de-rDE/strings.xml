@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VerwaltungResidenz</string>
+    <string name="nav_drawer_open">Navigationsschublade öffnen</string>
+    <string name="nav_drawer_close">Navigationsschublade schließen</string>
+    <string name="nav_header_desc">Navigation Kopfzeile</string>
+    <string name="action_about">Über</string>
+    <string name="menu_my_habitat">Mein Habitat</string>
+    <string name="menu_list_habitats">Liste der Habitate</string>
+    <string name="menu_my_notifications">Meine Benachrichtigungen</string>
+    <string name="menu_my_preferences">Meine Vorlieben</string>
+    <string name="connect_page">Seite Verbindung</string>
+    <string name="password">Passwort</string>
+    <string name="user_account">Benutzerkonto</string>
+    <string name="flag">Flagge</string>
+    <string name="sign_account">Registrieren</string>
+    <string name="login_account">Einloggen</string>
+    <string name="lost_password">Ich habe mein Passwort vergessen</string>
+    <string name="connect_google">Mit Google verbinden</string>
+    <string name="bad_syntax">Falsche Syntax</string>
+    <string name="wrong_credentials">Ungültige Berechtigungsnachweise</string>
+    <string name="register_new">Ein Konto registrieren</string>
+    <string name="forgotten_password">Passwort vergessen</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="validate">Validieren</string>
+    <string name="password_message">Ihr Passwort ist: %s</string>
+    <string name="account_inexistant">Dieses Konto existiert nicht. Bitte erstellen Sie eines.</string>
+    <string name="txt_about">Diese Anwendung wurde von Clothilde Proux, Rémi Lemaire und Esteban Cardaillac Rodriguez entwickelt und ist für die Verwaltung einer Wohnung gedacht.</string>
+    <string name="language">Sprache</string>
+    <string name="txt_select_language">Wählen Sie Ihre bevorzugte Sprache</string>
+    <string name="theme">Thema</string>
+    <string name="txt_select_theme">Wählen Sie Ihr bevorzugtes Thema</string>
+    <string name="notifications">Notifikationen</string>
+    <string name="notif_config">Aktivieren/Deaktivieren von Benachrichtigungen</string>
+</resources>

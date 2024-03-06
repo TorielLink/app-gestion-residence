@@ -7,16 +7,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_about">About</string>
 
-    <string name="menu_my_habitat">My Habitat</string>
-    <string name="menu_list_habitats">List of Habitats</string>
-    <string name="menu_my_notifications">My Notification</string>
+    <string name="menu_my_habitat">My habitat</string>
+    <string name="menu_list_habitats">List of habitats</string>
+    <string name="menu_my_notifications">My notifications</string>
     <string name="menu_my_preferences">My preferences</string>
 
     <string name="connect_page">Connexion page</string>
     <string name="password">Password</string>
     <string name="email" translatable="false">Email</string>
     <string name="user_account">UserAccount</string>
-    <string name="flag">flag</string>
+    <string name="flag">Flag</string>
     <string name="sign_account">Sign Up</string>
     <string name="login_account">Log In</string>
     <string name="lost_password">I forgot my password</string>
@@ -41,15 +41,17 @@
 
     <!-- Langues -->
     <string-array name="languages">
+        <item>Deutsch</item>
         <item>English</item>
-        <item>Français</item>
         <item>Español</item>
+        <item>Français</item>
     </string-array>
 
     <string-array name="language_values">
+        <item>de</item>
         <item>en</item>
-        <item>fr</item>
         <item>es</item>
+        <item>fr</item>
     </string-array>
 
     <string-array name="themes">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GestionResidence</string>
+    <string name="app_name">GestiónResidencia</string>
     <string name="nav_drawer_open">Abrir el menu de navegación</string>
     <string name="nav_drawer_close">Cerar el menu de navegación</string>
     <string name="nav_header_desc">Encabezado de navegación</string>
