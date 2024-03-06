@@ -29,7 +29,7 @@
     <string name="register_new">Register an account</string>
 
     <!-- Forgotten Password -->
-    <string name="forgotten_password">Oh no, I don\'t remember my password anymore…</string>
+    <string name="forgotten_password">Password forgotten</string>
 
     <!-- About -->
     <string name="txt_about">This application has been developed by Clothilde Proux, Rémi Lemaire
@@ -55,4 +55,7 @@
         <item>light</item>
         <item>dark</item>
     </string-array>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="validate">Validate</string>
 </resources>

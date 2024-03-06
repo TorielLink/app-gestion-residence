@@ -1,11 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/profilePictureRegister"
+        android:layout_width="92dp"
+        android:layout_height="77dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:contentDescription="@string/user_account"
+        android:src="@drawable/user_logo"
+        tools:srcCompat="@drawable/user_logo" />
+
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/TitleRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/profilePictureRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/register_new"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/labelFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editTextFirstName"
+        android:layout_toStartOf="@id/editTextFirstName"
+        android:labelFor="@id/editTextFirstName"
+        android:text="@string/first_name" />
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/TitleRegister"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="text|textEmailAddress|textAutoComplete"
+        android:nextFocusForward="@id/editTextLastName" />
+    <TextView
+        android:id="@+id/labelLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editTextLastName"
+        android:layout_toStartOf="@id/editTextLastName"
+        android:labelFor="@id/editTextLastName"
+        android:text="@string/last_name" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/editTextFirstName"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="text|textEmailAddress|textAutoComplete"
+        android:nextFocusForward="@id/editTextEmailRegister" />
+    <TextView
+        android:id="@+id/labelEmailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editTextEmailRegister"
+        android:layout_toStartOf="@id/editTextEmailRegister"
+        android:labelFor="@id/editTextEmailRegister"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/editTextEmailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/editTextLastName"
+        android:layout_centerHorizontal="true"
+        android:autofillHints="emailAddress"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="text|textEmailAddress|textAutoComplete"
+        android:nextFocusForward="@id/editTextPasswordRegister"
+        android:text="admin@iut.fr" />
+
+    <TextView
+        android:id="@+id/labelPasswordRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editTextPasswordRegister"
+        android:layout_toStartOf="@id/editTextPasswordRegister"
+        android:labelFor="@id/editTextPassword"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/editTextPasswordRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/editTextEmailRegister"
+        android:layout_centerHorizontal="true"
+        android:autofillHints="password"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:nextFocusForward="@id/btnLoginAccount"
+        android:text="admin" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPasswordRegister"
+        android:layout_centerHorizontal="true"
         android:text="@string/register_new" />
+
 </RelativeLayout>
