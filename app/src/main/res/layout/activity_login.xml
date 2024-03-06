@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextPassword"
         android:layout_centerHorizontal="true"
-        android:text="@string/connect" />
+        android:text="@string/login_account" />
 
     <Button
         android:id="@+id/btnCreateAccount"

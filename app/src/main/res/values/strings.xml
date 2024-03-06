@@ -12,7 +12,6 @@
     <string name="menu_my_notifications">My Notification</string>
     <string name="menu_my_preferences">My preferences</string>
 
-    <string name="connect">Connect</string>
     <string name="connect_page">Connexion page</string>
     <string name="password">Password</string>
     <string name="email" translatable="false">Email</string>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GestionResidence</string>
+    <string name="nav_drawer_open">Abrir el menu de navegación</string>
+    <string name="nav_drawer_close">Cerar el menu de navegación</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_about">A proposito</string>
+    <string name="menu_my_habitat">Mi hábitat</string>
+    <string name="menu_list_habitats">lista de hábitats</string>
+    <string name="menu_my_notifications">Mis notificationes</string>
+    <string name="menu_my_preferences">Mis preferencias</string>
+    <string name="connect_page">Pagina de connexion</string>
+    <string name="password">Contraseña</string>
+    <string name="user_account">Cuenta de usuario</string>
+    <string name="flag">Bandera</string>
+    <string name="sign_account">Crear una cuenta</string>
+    <string name="login_account">Conectarse</string>
+    <string name="lost_password">Olvide mi contraseña</string>
+    <string name="connect_google">Conectarse con Google</string>
+    <string name="bad_syntax">Mala sintaxis</string>
+    <string name="wrong_credentials">Mal identificador</string>
+    <string name="register_new">Registre una nueva cuenta</string>
+    <string name="forgotten_password">Olvide mi contraseña</string>
+    <string name="txt_about">Esta aplicación fue desarrollada por Clothilde Proux, Rémi Lemaire y Esteban Cardaillac Rodríguez y está destinado a la gestión de una residencia.</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="validate">validar</string>
+</resources>
