@@ -13,9 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.koushikdutta.ion.Ion;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,25 +5,35 @@ import static android.content.ContentValues.TAG;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.widget.TextView;
 
-import com.google.android.material.navigation.NavigationView;
-import com.koushikdutta.ion.Ion;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
-import android.content.res.Configuration;
 
+import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Locale;
 
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
@@ -66,15 +76,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
             TokenManager.setToken(token);
 
-            //String name = bundle.getString("name");
             if (email != null) {
                 TextView txtMail = headerView.findViewById(R.id.txt_user_email);
                 txtMail.setText(email);
             }
-            /*if (name != null) {
-                TextView txtName = findViewById(R.id.txt_user_name);
-                txtName.setText(name); //TODO : userName
-            }*/
+
+            TextView txtName = headerView.findViewById(R.id.txt_user_name);
+            setUserNameFromToken(token, txtName);
+
         } else {
             Log.e(TAG, "Intent extras bundle is null");
         }
@@ -128,5 +137,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Configuration configuration = new Configuration();
         configuration.setLocale(locale);
         getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+    }
+
+    private void setUserNameFromToken(String token, TextView textView){
+        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getUserName.php?token="+token;
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            String username;
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = new JSONObject(result);
+                    String firstname = jsonObject.getString("firstname");
+                    String lastname = jsonObject.getString("lastname");
+                    username = firstname + " " + lastname;
+                } catch (JSONException ex) {
+                    username = "GenericName";
+                }
+            textView.setText(username);
+        });
     }
 }

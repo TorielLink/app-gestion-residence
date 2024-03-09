@@ -1,6 +1,10 @@
 package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import iut.dam.gestionresidence.R;
@@ -18,6 +35,7 @@ import iut.dam.gestionresidence.adapter.HabitatAdapter;
 import iut.dam.gestionresidence.databinding.FragmentListHabitatsBinding;
 import iut.dam.gestionresidence.entities.Appliance;
 import iut.dam.gestionresidence.entities.Habitat;
+import iut.dam.gestionresidence.entities.TokenManager;
 import iut.dam.gestionresidence.entities.User;
 
 public class ListHabitatsFragment extends Fragment {
@@ -32,32 +50,53 @@ public class ListHabitatsFragment extends Fragment {
         binding = FragmentListHabitatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textListHabitats;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
         ListView list = binding.listHabitat;
 
-        //TODO recuperer les habitats sur le serveur WEB via l'API
-
         ArrayList<Habitat> habitats = new ArrayList<>();
-        ArrayList<Appliance> appliances = new ArrayList<>();
-        appliances.add(new Appliance(1, "Washing Machine", "WM04", 1600));
-        appliances.add(new Appliance(2, "Aspirateur", "Philips X123", 600));
-        habitats.add(new Habitat(0, new User("Martin Duchemin"), 2, 4.5, appliances));
 
-        ArrayList<Appliance> appliances2 = new ArrayList<>();
-        appliances2.add(new Appliance(4, "Fer à repasser", "WM04", 500));
-        appliances2.add(new Appliance(2, "Aspirateur", "Philips X123", 600));
-        habitats.add(new Habitat(1, new User("Martine Delaroute"), 4, 6.0, appliances2));
+        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php?token="
+                + TokenManager.getToken();
 
-        ArrayList<Appliance> appliances3 = new ArrayList<>();
-        appliances3.add(new Appliance(3, "Cooking Machine", "WM04", 450));
-        appliances3.add(new Appliance(2, "Aspirateur", "Philips X123", 600));
-        habitats.add(new Habitat(2, new User("Jaques Delalé"), 0, 8.0, appliances3));
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            JSONObject jsonObject = null;
+            try {
+                JSONArray jsonArray = new JSONArray(result);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject habitatJson = jsonArray.getJSONObject(i);
+                    int habitatId = habitatJson.getInt("id");
+                    int floor = habitatJson.getInt("floor");
+                    double area = habitatJson.getDouble("area");
+                    JSONArray applianceJsonArray = habitatJson.getJSONArray("appliances");
+                    ArrayList<Appliance> habitatAppliances = new ArrayList<>();
+
+                    for (int j = 0; j < applianceJsonArray.length(); j++) {
+                        JSONObject applianceJson = applianceJsonArray.getJSONObject(j);
+                        int applianceId = applianceJson.getInt("id");
+                        String name = applianceJson.getString("name");
+                        String reference = applianceJson.getString("reference");
+                        int wattage = applianceJson.getInt("wattage");
+                        habitatAppliances.add(new Appliance(applianceId, name, reference, wattage));
+                    }
+
+                    habitats.add(new Habitat(habitatId, new User("User n°" + (i+1)), floor, area, habitatAppliances));//TODO not Jack
+                }
+
+                HabitatAdapter adapter = new HabitatAdapter(requireContext(), habitats);
+                list.setAdapter(adapter);
+            } catch (JSONException ex) {
+                new AlertDialog.Builder(getActivity())
+                        .setTitle(getString(R.string.menu_list_habitats))
+                        .setMessage(getString(R.string.errorGetHabitats))
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            dialog.dismiss();
+                        })
+                        .show();
+            }
+        });
 
         HabitatAdapter adapter = new HabitatAdapter(requireContext(), habitats);
         list.setAdapter(adapter);
-
 
         return root;
     }
