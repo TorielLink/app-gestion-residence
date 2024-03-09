@@ -40,6 +40,7 @@
         android:layout_below="@id/TitleRegister"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:hint="@string/first_name"
         android:inputType="text|textEmailAddress|textAutoComplete"
         android:nextFocusForward="@id/editTextLastName" />
     <TextView
@@ -58,6 +59,7 @@
         android:layout_below="@id/editTextFirstName"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:hint="@string/last_name"
         android:inputType="text|textEmailAddress|textAutoComplete"
         android:nextFocusForward="@id/editTextEmailRegister" />
     <TextView
@@ -79,8 +81,7 @@
         android:ems="10"
         android:hint="@string/email"
         android:inputType="text|textEmailAddress|textAutoComplete"
-        android:nextFocusForward="@id/editTextPasswordRegister"
-        android:text="admin@iut.fr" />
+        android:nextFocusForward="@id/editTextPasswordRegister" />
 
     <TextView
         android:id="@+id/labelPasswordRegister"
@@ -101,8 +102,7 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:nextFocusForward="@id/btnLoginAccount"
-        android:text="admin" />
+        android:nextFocusForward="@id/btnLoginAccount" />
 
     <Button
         android:id="@+id/btnRegister"

@@ -44,4 +44,6 @@
     <string name="txt_select_theme">Choissez votre thème</string>
     <string name="notifications">Notifications</string>
     <string name="notif_config">Activer/désactiver les notifications</string>
+    <string name="errorRegister">Le serveur a rencontré une erreur lors de la création de compte</string>
+    <string name="succesRegister">Votre compte a été crée</string>
 </resources>

@@ -71,4 +71,6 @@
     <string name="txt_select_theme">Select your preferred theme</string>
     <string name="notifications">Notifications</string>
     <string name="notif_config">Enable/disable notifications</string>
+    <string name="errorRegister">The server ran into an error while creating your account</string>
+    <string name="succesRegister">Account created successfully</string>
 </resources>
