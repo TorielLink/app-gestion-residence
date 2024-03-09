@@ -47,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else {
                     if(result.equals("OK")) {
                         new AlertDialog.Builder(this)
-                                .setTitle(getString(R.string.succesRegister))
+                                .setTitle(getString(R.string.succes_register))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                     finish();
@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else {
                         new AlertDialog.Builder(this)
-                                .setTitle(getString(R.string.errorRegister))
+                                .setTitle(getString(R.string.error_register))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                     finish();

@@ -24,8 +24,8 @@
 
     <!-- Register -->
     <string name="register_new">Enregister un nouveau compte</string>
-    <string name="errorRegister">Le serveur a rencontré une erreur lors de la création de compte</string>
-    <string name="succesRegister">Votre compte a été crée</string>
+    <string name="error_register">Le serveur a rencontré une erreur lors de la création de compte</string>
+    <string name="succes_register">Votre compte a été crée</string>
 
     <!-- Forgotten Password -->
     <string name="forgotten_password">Mot de passe oublié</string>
@@ -48,14 +48,15 @@
     <string name="notif_config">Activer/désactiver les notifications</string>
 
     <!-- Add Habitat -->
-    <string name="AddNewHabitat">Ajouter un nouvel habitat</string>
+    <string name="add_new_habitat">Ajouter un nouvel habitat</string>
     <string name="floor">Étage</string>
     <string name="area">Zone</string>
-    <string name="succesAddHabitat">Habitat ajouté avec succès</string>
-    <string name="errorAddHabitat">Une erreur est survenue lors de l\'ajout de votre habitat</string>
+    <string name="succes_add_habitat">Habitat ajouté avec succès</string>
+    <string name="error_add_habitat">Une erreur est survenue lors de l\'ajout de votre habitat</string>
 
     <!-- Get Habitat -->
-    <string name="errorGetHabitats">Une erreur est survenue lors de la récupération de la liste des habitats</string>
+    <string name="error_get_habitats">Une erreur est survenue lors de la récupération de la liste des habitats</string>
+    <string name="total_wattage_habitats">Wattage total : %s W</string>
 
     <!-- Auto added values -->
 </resources>

@@ -1,10 +1,7 @@
 package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,19 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.koushikdutta.ion.Ion;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import iut.dam.gestionresidence.R;
@@ -51,6 +41,7 @@ public class ListHabitatsFragment extends Fragment {
         View root = binding.getRoot();
 
         ListView list = binding.listHabitat;
+        TextView tvTotalWattage = binding.textViewTotalWattage;
 
         ArrayList<Habitat> habitats = new ArrayList<>();
 
@@ -59,6 +50,7 @@ public class ListHabitatsFragment extends Fragment {
 
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             JSONObject jsonObject = null;
+            long totalWattage = 0;
             try {
                 JSONArray jsonArray = new JSONArray(result);
 
@@ -76,18 +68,22 @@ public class ListHabitatsFragment extends Fragment {
                         String name = applianceJson.getString("name");
                         String reference = applianceJson.getString("reference");
                         int wattage = applianceJson.getInt("wattage");
+                        totalWattage += wattage;
                         habitatAppliances.add(new Appliance(applianceId, name, reference, wattage));
                     }
 
-                    habitats.add(new Habitat(habitatId, new User("User n°" + (i+1)), floor, area, habitatAppliances));//TODO not Jack
+                    habitats.add(new Habitat(habitatId, new User("User n°" + (i+1)), floor, area, habitatAppliances));//TODO get user name
                 }
 
                 HabitatAdapter adapter = new HabitatAdapter(requireContext(), habitats);
                 list.setAdapter(adapter);
+
+                tvTotalWattage.setText(getString(R.string.total_wattage_habitats, String.valueOf(totalWattage)));
+
             } catch (JSONException ex) {
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.menu_list_habitats))
-                        .setMessage(getString(R.string.errorGetHabitats))
+                        .setMessage(getString(R.string.error_get_habitats))
                         .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                             dialog.dismiss();
                         })

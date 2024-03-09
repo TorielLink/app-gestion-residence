@@ -12,7 +12,7 @@ import iut.dam.gestionresidence.R;
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private static final long SPLASH_SCREEN_DELAY = 0;//TODO mettre 2000 pour la voir plus longtemps
+    private static final long SPLASH_SCREEN_DELAY = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -98,5 +98,6 @@
         android:layout_alignBaseline="@id/btnForgottenPassword"
         android:layout_centerHorizontal="true"
         android:layout_toEndOf="@id/btnForgottenPassword"
-        android:text="@string/connect_google" />
+        android:text="@string/connect_google"
+        android:visibility="gone" />
 </RelativeLayout>

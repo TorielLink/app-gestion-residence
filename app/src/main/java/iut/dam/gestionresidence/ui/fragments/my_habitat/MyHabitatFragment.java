@@ -52,7 +52,7 @@ public class MyHabitatFragment extends Fragment {
                 else {
                     if(result.equals("OK")) {
                         new AlertDialog.Builder(getActivity())
-                                .setTitle(getString(R.string.succesAddHabitat))
+                                .setTitle(getString(R.string.succes_add_habitat))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                 })
@@ -60,7 +60,7 @@ public class MyHabitatFragment extends Fragment {
                     }
                     else {
                         new AlertDialog.Builder(getActivity())
-                                .setTitle(getString(R.string.errorAddHabitat))
+                                .setTitle(getString(R.string.error_add_habitat))
                                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                     dialog.dismiss();
                                 })

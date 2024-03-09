@@ -99,6 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnForgottenPassword"
         android:layout_centerHorizontal="true"
-        android:text="@string/connect_google" />
+        android:text="@string/connect_google"
+        android:visibility="gone" />
 
 </RelativeLayout>
