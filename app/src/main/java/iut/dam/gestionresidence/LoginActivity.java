@@ -67,14 +67,14 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject jsonObject = null;
                 try {
                     jsonObject = new JSONObject(result);
-                    String token = jsonObject.getString("token"); //TODO
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("email", email);
-                        bundle.putString("password", password);
-                        bundle.putString("token", token);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+                    String token = jsonObject.getString("token");
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("email", email);
+                    bundle.putString("password", password);
+                    bundle.putString("token", token);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 } catch (JSONException ex) {
                     new AlertDialog.Builder(this)
                             .setTitle(getString(R.string.login_account))

@@ -73,4 +73,9 @@
     <string name="notif_config">Enable/disable notifications</string>
     <string name="errorRegister">The server ran into an error while creating your account</string>
     <string name="succesRegister">Account created successfully</string>
+    <string name="AddNewHabitat">Add a new Habitat</string>
+    <string name="floor">Floor</string>
+    <string name="area">Area</string>
+    <string name="succesAddHabitat">Habitat added successfully</string>
+    <string name="errorAddHabitat">An error occured while adding your Habitat</string>
 </resources>

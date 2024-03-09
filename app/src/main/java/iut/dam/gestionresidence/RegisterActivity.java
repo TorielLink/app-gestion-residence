@@ -44,9 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
             String urlString = "http://remi-lem.alwaysdata.net/amenagor/signUp.php?firstName=" +
                     firstName + "&lastName=" + lastName + "&email=" + email + "&password=" +
                     password;
-            Log.d(TAG, urlString);
             Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-                Log.d(TAG, result);
                 if(result == null)
                     Log.d(TAG, "No response from the server!!!");
                 else {

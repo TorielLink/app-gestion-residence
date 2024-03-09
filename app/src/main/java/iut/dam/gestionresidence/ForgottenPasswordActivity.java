@@ -16,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ForgottenPasswordActivity  extends AppCompatActivity {
-    private static final String URL = "http://remi-lem.alwaysdata.net/amenagor/getPassword.php";//TODO
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

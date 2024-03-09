@@ -62,7 +62,6 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
         if (currentItem != null) {
             residentTV.setText(currentItem.getName());
             numberFloorTV.setText(currentItem.getFloor());
-            //Log.d("myApp", Integer.toString(currentItem.getFloor()));
 
             int nb = 0;
             for(ImageView i : appliancesList){

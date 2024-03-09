@@ -46,4 +46,9 @@
     <string name="notif_config">Activer/désactiver les notifications</string>
     <string name="errorRegister">Le serveur a rencontré une erreur lors de la création de compte</string>
     <string name="succesRegister">Votre compte a été crée</string>
+    <string name="AddNewHabitat">Ajouter un nouvel habitat</string>
+    <string name="floor">Étage</string>
+    <string name="area">Zone</string>
+    <string name="succesAddHabitat">Habitat ajouté avec succès</string>
+    <string name="errorAddHabitat">Une erreur est survenue lors de l\'ajout de votre habitat</string>
 </resources>

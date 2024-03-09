@@ -27,6 +27,7 @@ import android.content.res.Configuration;
 import java.util.Locale;
 
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
+import iut.dam.gestionresidence.entities.TokenManager;
 import iut.dam.gestionresidence.ui.fragments.about.AboutDialogFragment;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -61,9 +62,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (bundle != null) {
             View headerView = navigationView.getHeaderView(0);
             String email = bundle.getString("email");
+            String token = bundle.getString("token");
+
+            TokenManager.setToken(token);
+
             //String name = bundle.getString("name");
             if (email != null) {
-                Log.d("debugRemi", email);
                 TextView txtMail = headerView.findViewById(R.id.txt_user_email);
                 txtMail.setText(email);
             }
@@ -124,31 +128,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Configuration configuration = new Configuration();
         configuration.setLocale(locale);
         getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
-    }
-
-    public void getRemoteHabitats() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Getting list of habitats...").setCancelable(false);
-        final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php";
-        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-            alertDialog.dismiss();
-            if(result == null)
-                Log.d(TAG, "No response from the server!!!");
-            else {
-                //TODO : Traitement de result
-            }
-        });
-    }
-
-    public void addRemoteHabitat() {
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/addHabitat.php?floor=X";
-        Ion.with(this).load(urlString).asString().withResponse()
-                .setCallback((e, response) -> {
-            if(response.getHeaders().code() == 200) { /*TODO*/ }
-            //TODO
-        });
     }
 }
