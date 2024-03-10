@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void setUserNameFromToken(String token, TextView textView){
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getUserName.php?token="+token;
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getUserName.php?token="+token;
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             String username;
                 JSONObject jsonObject;

@@ -45,7 +45,7 @@ public class ListHabitatsFragment extends Fragment {
 
         ArrayList<Habitat> habitats = new ArrayList<>();
 
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/getHabitats.php?token="
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getHabitats.php?token="
                 + TokenManager.getToken();
 
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {

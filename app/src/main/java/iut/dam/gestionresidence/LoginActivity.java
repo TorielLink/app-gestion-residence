@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void testPassword(String email, String password){
-        String urlString = "http://remi-lem.alwaysdata.net/amenagor/login.php?email="+email+"&password="+password;
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/login.php?email="+email+"&password="+password;
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             if (result == null)
                 Log.d(TAG, "No response from the server!!!");

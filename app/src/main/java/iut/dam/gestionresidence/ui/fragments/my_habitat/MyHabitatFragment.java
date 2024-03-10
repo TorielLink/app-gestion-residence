@@ -43,7 +43,7 @@ public class MyHabitatFragment extends Fragment {
             int area = Integer.parseInt(etArea.getText().toString().trim());
             String token = TokenManager.getToken();
 
-            String urlString = "http://remi-lem.alwaysdata.net/amenagor/addHabitat.php?token="
+            String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/addHabitat.php?token="
                     + token + "&floor=" + floor + "&area=" + area;
 
             Ion.with(this).load(urlString).asString().setCallback((e, result) -> {

@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
                 return;
             }
 
-            String urlString = "http://remi-lem.alwaysdata.net/amenagor/signUp.php?firstName=" +
+            String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/signUp.php?firstName=" +
                     firstName + "&lastName=" + lastName + "&email=" + email + "&password=" +
                     password;
             Ion.with(this).load(urlString).asString().setCallback((e, result) -> {

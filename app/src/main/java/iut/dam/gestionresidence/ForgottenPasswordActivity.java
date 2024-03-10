@@ -28,7 +28,7 @@ public class ForgottenPasswordActivity  extends AppCompatActivity {
         btnLogin.setOnClickListener(view -> {
             String email = etEmail.getText().toString().trim();
 
-            String urlString = "http://remi-lem.alwaysdata.net/amenagor/getPassword.php?email="+email;
+            String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getPassword.php?email="+email;
             Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
                 if(result == null)
                     Log.d(TAG, "No response from the server!!!");
