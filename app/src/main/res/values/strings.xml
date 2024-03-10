@@ -7,6 +7,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_about">About</string>
 
+    <!-- Menu -->
+    <string name="menu_user_account">My Account</string>
     <string name="menu_my_habitat">My habitat</string>
     <string name="menu_list_habitats">List of habitats</string>
     <string name="menu_my_notifications">My notifications</string>
@@ -79,11 +81,10 @@
     <string name="floor">Floor</string>
     <string name="area">Area</string>
     <string name="succes_add_habitat">Habitat added successfully</string>
-    <string name="error_add_habitat">An error occured while adding your habitat</string>
+    <string name="error_add_habitat">An error occurred while adding your habitat</string>
 
     <!-- Get Habitat -->
-    <string name="error_get_habitats">An error occured while retrieving the habitats\' list</string>
+    <string name="error_get_habitats">An error occurred while retrieving the habitats\' list</string>
     <string name="total_wattage_habitats">Total wattage : %s W</string>
-
     <!-- Auto added values -->
 </resources>

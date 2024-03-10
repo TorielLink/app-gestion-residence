@@ -57,6 +57,7 @@
     <!-- Get Habitat -->
     <string name="error_get_habitats">Une erreur est survenue lors de la récupération de la liste des habitats</string>
     <string name="total_wattage_habitats">Wattage total : %s W</string>
+    <string name="menu_user_account">Mon compte</string>
 
     <!-- Auto added values -->
 </resources>

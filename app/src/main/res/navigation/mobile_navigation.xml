@@ -6,6 +6,12 @@
     app:startDestination="@+id/nav_my_habitat">
 
     <fragment
+        android:id="@+id/nav_user_account"
+        android:name="iut.dam.gestionresidence.ui.fragments.user_account.UserAccountFragment"
+        android:label="@string/menu_user_account"
+        tools:layout="@layout/fragment_user_account" />
+
+    <fragment
         android:id="@+id/nav_my_habitat"
         android:name="iut.dam.gestionresidence.ui.fragments.my_habitat.MyHabitatFragment"
         android:label="@string/menu_my_habitat"
@@ -26,6 +32,5 @@
     <fragment
         android:id="@+id/nav_my_preferences"
         android:name="iut.dam.gestionresidence.ui.fragments.my_preferences.MyPreferencesFragment"
-        android:label="@string/menu_my_preferences"
-        tools:layout="@layout/fragment_my_notifications" />
+        android:label="@string/menu_my_preferences" />
 </navigation>

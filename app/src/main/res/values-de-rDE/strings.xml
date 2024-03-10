@@ -20,6 +20,8 @@
     <string name="bad_syntax">Falsche Syntax</string>
     <string name="wrong_credentials">Ungültige Berechtigungsnachweise</string>
     <string name="register_new">Ein Konto registrieren</string>
+    <string name="error_register">Der Server ist beim Erstellen Ihres Kontos auf einen Fehler gestoßen</string>
+    <string name="succes_register">Konto erfolgreich erstellt</string>
     <string name="forgotten_password">Passwort vergessen</string>
     <string name="first_name">Vorname</string>
     <string name="last_name">Nachname</string>
@@ -33,4 +35,12 @@
     <string name="txt_select_theme">Wählen Sie Ihr bevorzugtes Thema</string>
     <string name="notifications">Notifikationen</string>
     <string name="notif_config">Aktivieren/Deaktivieren von Benachrichtigungen</string>
+    <string name="add_new_habitat">Einen neuen Habitat hinzufügen</string>
+    <string name="floor">Boden</string>
+    <string name="area">Bereich</string>
+    <string name="succes_add_habitat">Habitat erfolgreich hinzugefügt</string>
+    <string name="error_add_habitat">Beim Hinzufügen Ihres Habitats ist ein Fehler aufgetreten</string>
+    <string name="error_get_habitats">Beim Abrufen der Liste der Habitate ist ein Fehler aufgetreten</string>
+    <string name="total_wattage_habitats">Gesamtwattzahl : %s W</string>
+    <string name="menu_user_account">Mein Konto</string>
 </resources>

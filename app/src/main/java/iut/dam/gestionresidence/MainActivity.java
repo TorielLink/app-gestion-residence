@@ -2,7 +2,6 @@ package iut.dam.gestionresidence;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -11,10 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,23 +24,17 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.koushikdutta.ion.Ion;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Locale;
 
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
 import iut.dam.gestionresidence.entities.TokenManager;
 import iut.dam.gestionresidence.ui.fragments.about.AboutDialogFragment;
+import iut.dam.gestionresidence.ui.fragments.user_account.UserAccountFragment;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private AppBarConfiguration mAppBarConfiguration;
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_my_habitat, R.id.nav_list_habitats, R.id.nav_my_notifications,
-                R.id.nav_my_preferences).setOpenableLayout(drawer).build();
+                R.id.nav_my_preferences, R.id.nav_user_account).setOpenableLayout(drawer).build();
         NavController navController = Navigation.findNavController(this,
                 R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController,
@@ -69,8 +65,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        View headerView = navigationView.getHeaderView(0);
         if (bundle != null) {
-            View headerView = navigationView.getHeaderView(0);
             String email = bundle.getString("email");
             String token = bundle.getString("token");
 
@@ -79,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             if (email != null) {
                 TextView txtMail = headerView.findViewById(R.id.txt_user_email);
                 txtMail.setText(email);
+
             }
 
             TextView txtName = headerView.findViewById(R.id.txt_user_name);
@@ -87,6 +84,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             Log.e(TAG, "Intent extras bundle is null");
         }
+
+        ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
+        //imgUser.setImageResource(R.drawable.img_profil);
+
+        //TODO: Ne fonctionne pas…
+        /* imgUser.setOnClickListener(view ->
+                Navigation.findNavController(this, R.id.nav_host_fragment_content_main)
+                        .navigate(R.id.nav_user_account)
+        ); */
     }
 
     @Override
@@ -143,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         String urlString = "http://remi-lem.alwaysdata.net/amenagor/getUserName.php?token="+token;
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             String username;
-                JSONObject jsonObject = null;
+                JSONObject jsonObject;
                 try {
                     jsonObject = new JSONObject(result);
                     String firstname = jsonObject.getString("firstname");
