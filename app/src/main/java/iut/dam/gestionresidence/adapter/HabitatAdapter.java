@@ -70,7 +70,16 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
                     i.setVisibility(View.INVISIBLE);
                 }
             }
-            applianceTV.setText(currentItem.getAppliances().size() + " équipements");
+            int nbAppliances = currentItem.getAppliances().size();
+            String txtAppliances = "";
+            switch (nbAppliances) {
+                case 0: txtAppliances = "Aucun équipement";
+                    break;
+                case 1: txtAppliances = "1 équipement";
+                    break;
+                default: txtAppliances = nbAppliances + " équipements";
+            }
+            applianceTV.setText(txtAppliances);
         }
         return convertView;
     }
