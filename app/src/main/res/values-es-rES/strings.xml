@@ -20,6 +20,8 @@
     <string name="bad_syntax">Mala sintaxis</string>
     <string name="wrong_credentials">Mal identificador</string>
     <string name="register_new">Registre una nueva cuenta</string>
+    <string name="error_register">El servidor encontró un error al crear una cuenta</string>
+    <string name="succes_register">Tu cuenta fue creada</string>
     <string name="forgotten_password">Olvide mi contraseña</string>
     <string name="password_message">Su contra contraseña es : %s</string>
     <string name="account_inexistant">Esta cuenta no existe. Por favor crea uno.</string>
@@ -33,4 +35,11 @@
     <string name="txt_select_theme">Elige un thema</string>
     <string name="notifications">Notificaciones</string>
     <string name="notif_config">Activar/Desactivar las notificaciones</string>
+    <string name="add_new_habitat">Agregar un nuevo hábitat</string>
+    <string name="floor">Piso</string>
+    <string name="area">Área</string>
+    <string name="succes_add_habitat">Hábitat agregado exitosamente</string>
+    <string name="error_add_habitat">Se produjo un error al agregar su hábitat.</string>
+    <string name="error_get_habitats">Se produjo un error al recuperar la lista de hábitats.</string>
+    <string name="total_wattage_habitats">Potencia total: %s W</string>
 </resources>
