@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/profilePictureGeneric"
+        android:id="@+id/profile_picture_generic"
         android:layout_width="92dp"
         android:layout_height="77dp"
         android:layout_centerHorizontal="true"
@@ -16,90 +16,89 @@
         tools:srcCompat="@drawable/user_logo" />
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/txt_connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profilePictureGeneric"
+        android:layout_below="@id/profile_picture_generic"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:text="@string/connect_page"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/labelEmail"
+        android:id="@+id/label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/editTextEmailAddress"
-        android:layout_toStartOf="@id/editTextEmailAddress"
-        android:labelFor="@id/editTextEmailAddress"
+        android:layout_alignBaseline="@id/edit_text_email_address"
+        android:layout_toStartOf="@id/edit_text_email_address"
+        android:labelFor="@id/edit_text_email_address"
         android:text="@string/email" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/edit_text_email_address"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_below="@id/Title"
+        android:layout_below="@id/txt_connect"
         android:layout_centerHorizontal="true"
         android:autofillHints="emailAddress"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="text|textEmailAddress|textAutoComplete"
-        android:nextFocusForward="@id/editTextPassword"
+        android:nextFocusForward="@id/edit_text_password"
         android:text="admin@iut.fr" />
 
     <TextView
-        android:id="@+id/labelPassword"
+        android:id="@+id/label_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/editTextPassword"
-        android:layout_toStartOf="@id/editTextPassword"
-        android:labelFor="@id/editTextPassword"
+        android:layout_alignBaseline="@id/edit_text_password"
+        android:layout_toStartOf="@id/edit_text_password"
+        android:labelFor="@id/edit_text_password"
         android:text="@string/password" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/edit_text_password"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_below="@id/editTextEmailAddress"
+        android:layout_below="@id/edit_text_email_address"
         android:layout_centerHorizontal="true"
         android:autofillHints="password"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:nextFocusForward="@id/btnLoginAccount"
+        android:nextFocusForward="@id/btn_login_account"
         android:text="admin" />
 
     <Button
-        android:id="@+id/btnLoginAccount"
+        android:id="@+id/btn_login_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
+        android:layout_below="@id/edit_text_password"
         android:layout_centerHorizontal="true"
         android:text="@string/login_account" />
 
     <Button
-        android:id="@+id/btnCreateAccount"
+        android:id="@+id/btn_create_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnLoginAccount"
+        android:layout_below="@id/btn_login_account"
         android:layout_centerHorizontal="true"
         android:text="@string/sign_account" />
 
     <Button
-        android:id="@+id/btnForgottenPassword"
+        android:id="@+id/btn_forgotten_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnCreateAccount"
+        android:layout_below="@id/btn_create_account"
         android:layout_centerHorizontal="true"
         android:text="@string/lost_password" />
 
     <Button
-        android:id="@+id/btnConnectGoogle"
+        android:id="@+id/btn_connect_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnForgottenPassword"
+        android:layout_below="@id/btn_forgotten_password"
         android:layout_centerHorizontal="true"
         android:text="@string/connect_google"
         android:visibility="gone" />
-
 </RelativeLayout>

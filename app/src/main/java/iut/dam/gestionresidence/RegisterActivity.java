@@ -20,12 +20,12 @@ public class RegisterActivity extends AppCompatActivity {
         setTitle("Création de compte");
         setContentView(R.layout.activity_register);
 
-        EditText etFirstName = findViewById(R.id.editTextFirstName);
-        EditText etLastName = findViewById(R.id.editTextLastName);
-        EditText etEmail = findViewById(R.id.editTextEmailRegister);
-        EditText etPassword = findViewById(R.id.editTextPasswordRegister);
+        EditText etFirstName = findViewById(R.id.edit_text_first_name);
+        EditText etLastName = findViewById(R.id.edit_text_last_name);
+        EditText etEmail = findViewById(R.id.edit_text_email_register);
+        EditText etPassword = findViewById(R.id.edit_text_password_register);
 
-        Button btnRegister = findViewById(R.id.btnRegister);
+        Button btnRegister = findViewById(R.id.btn_register);
 
         btnRegister.setOnClickListener(view -> {
             String firstName = etFirstName.getText().toString().trim();

@@ -20,15 +20,14 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Page de connexion");
         setContentView(R.layout.activity_login);
 
-        EditText etEmail = findViewById(R.id.editTextEmailAddress);
-        EditText etPassword = findViewById(R.id.editTextPassword);
-        Button btnLogin = findViewById(R.id.btnLoginAccount);
-        Button btnCreateAcc = findViewById(R.id.btnCreateAccount);
-        Button btnGoogle = findViewById(R.id.btnConnectGoogle);
-        Button btnForgotPwd = findViewById(R.id.btnForgottenPassword);
+        EditText etEmail = findViewById(R.id.edit_text_email_address);
+        EditText etPassword = findViewById(R.id.edit_text_password);
+        Button btnLogin = findViewById(R.id.btn_login_account);
+        Button btnCreateAcc = findViewById(R.id.btn_create_account);
+        Button btnGoogle = findViewById(R.id.btn_connect_google);
+        Button btnForgotPwd = findViewById(R.id.btn_forgotten_password);
 
         btnLogin.setOnClickListener(view -> {
             String enteredEmail = etEmail.getText().toString().trim();

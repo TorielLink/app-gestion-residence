@@ -7,60 +7,62 @@
     tools:context=".ui.fragments.my_habitat.MyHabitatFragment">
 
     <TextView
-        android:id="@+id/TitleAddHabitat"
+        android:id="@+id/title_add_habitat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="@string/add_new_habitat"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/labelFloor"
+        app:layout_constraintBottom_toTopOf="@+id/label_floor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/labelFloor"
+        android:id="@+id/label_floor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor"
-        app:layout_constraintEnd_toStartOf="@id/editTextFloor"
-        app:layout_constraintTop_toTopOf="@+id/editTextFloor" />
+        app:layout_constraintEnd_toStartOf="@id/edit_text_floor"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_floor" />
 
     <EditText
-        android:id="@+id/editTextFloor"
+        android:id="@+id/edit_text_floor"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="phone"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleAddHabitat" />
+        app:layout_constraintTop_toBottomOf="@+id/title_add_habitat"
+        android:autofillHints="floor"/>
 
     <TextView
-        android:id="@+id/labelArea"
+        android:id="@+id/label_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/area"
-        app:layout_constraintEnd_toStartOf="@id/editTextArea"
-        app:layout_constraintTop_toTopOf="@+id/editTextArea" />
+        app:layout_constraintEnd_toStartOf="@id/edit_text_area"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_area" />
 
     <EditText
-        android:id="@+id/editTextArea"
+        android:id="@+id/edit_text_area"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFloor" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_floor"
+        android:autofillHints="postalAddress"/>
 
 
     <Button
-        android:id="@+id/btnAddHabitat"
+        android:id="@+id/btn_add_habitat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_new_habitat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextArea" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_area" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

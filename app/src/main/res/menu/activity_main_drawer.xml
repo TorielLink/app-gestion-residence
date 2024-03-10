@@ -6,7 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_user_account"
-            android:visible="false" />
+            android:title="COMPTE"
+            android:visible="true" />
         <item
             android:id="@+id/nav_my_habitat"
             android:icon="@drawable/ic_menu_first"

@@ -43,4 +43,5 @@
     <string name="error_get_habitats">Beim Abrufen der Liste der Habitate ist ein Fehler aufgetreten</string>
     <string name="total_wattage_habitats">Gesamtwattzahl : %s W</string>
     <string name="menu_user_account">Mein Konto</string>
+    <string name="change_password">Passwort ändern</string>
 </resources>

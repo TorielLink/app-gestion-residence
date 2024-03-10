@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -34,7 +32,6 @@ import java.util.Locale;
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
 import iut.dam.gestionresidence.entities.TokenManager;
 import iut.dam.gestionresidence.ui.fragments.about.AboutDialogFragment;
-import iut.dam.gestionresidence.ui.fragments.user_account.UserAccountFragment;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private AppBarConfiguration mAppBarConfiguration;
@@ -134,6 +131,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             String language = sharedPreferences.getString(key, "fr");
             setLocale(language);
             recreate(); // Reload the activity to apply the language change
+        } else if (key.equals("pref_key_theme")) {
+            String theme = sharedPreferences
+                    .getString("pref_key_theme", "light");
+            if (theme.equals("dark")) {
+                setTheme(R.style.Theme_GestionResidence_Dark);
+            } else {
+                setTheme(R.style.Theme_GestionResidence);
+            }
+            recreate();
         }
     }
 

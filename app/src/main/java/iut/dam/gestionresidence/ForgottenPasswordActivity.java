@@ -22,8 +22,8 @@ public class ForgottenPasswordActivity  extends AppCompatActivity {
         setTitle("Mot de passe oublié");
         setContentView(R.layout.activity_forgotten_password);
 
-        EditText etEmail = findViewById(R.id.editTextEmailPasswordForgotten);
-        Button btnLogin = findViewById(R.id.btnPasswordForgotten);
+        EditText etEmail = findViewById(R.id.edit_text_email_password_forgotten);
+        Button btnLogin = findViewById(R.id.btn_password_forgotten);
 
         btnLogin.setOnClickListener(view -> {
             String email = etEmail.getText().toString().trim();

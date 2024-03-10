@@ -76,6 +76,9 @@
     <string name="notifications">Notifications</string>
     <string name="notif_config">Enable/disable notifications</string>
 
+    <!-- User Account -->
+    <string name="change_password">Change password</string>
+
     <!-- Add Habitat -->
     <string name="add_new_habitat">Add a new habitat</string>
     <string name="floor">Floor</string>
