@@ -118,7 +118,7 @@ public class MyHabitatFragment extends Fragment {
 
     private void showAppliancesForHabitat(int idHabitat, String username) {
         ListView list = binding.listHabitat;
-        TextView tvTotalWattage = binding.textViewTotalWattage;
+        TextView tvTotalWattage = binding.txtTotalWattage;
 
         ArrayList<Habitat> habitats = new ArrayList<>();
 
@@ -132,7 +132,6 @@ public class MyHabitatFragment extends Fragment {
                 JSONArray jsonArray = new JSONArray(result);
 
                 for (int i = 0; i < jsonArray.length(); i++) {
-                    Log.d("debugRemi", i+"");//TODO
                     JSONObject habitatJson = jsonArray.getJSONObject(i);
                     int habitatId = habitatJson.getInt("id");
                     if(habitatId == idHabitat){

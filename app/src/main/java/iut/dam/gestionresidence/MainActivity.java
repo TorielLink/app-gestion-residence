@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { //TODO : déléguer
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         iut.dam.gestionresidence.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -51,18 +51,24 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_my_habitat, R.id.nav_list_habitats, R.id.nav_my_notifications,
-                R.id.nav_my_preferences, R.id.nav_user_account).setOpenableLayout(drawer).build();
+                R.id.nav_user_account, R.id.nav_my_habitat, R.id.nav_list_habitats, R.id.nav_my_notifications,
+                R.id.nav_my_preferences).setOpenableLayout(drawer).build();
         NavController navController = Navigation.findNavController(this,
                 R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController,
                 mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        View headerView = navigationView.getHeaderView(0);
 
+        getBundleInfosAndUpdate(headerView);
+
+        setImgUser(headerView);
+    }
+
+    private void getBundleInfosAndUpdate(View headerView) {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        View headerView = navigationView.getHeaderView(0);
         if (bundle != null) {
             String email = bundle.getString("email");
             String token = bundle.getString("token");
@@ -79,19 +85,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             Log.e(TAG, "Intent extras bundle is null");
         }
-
-        setImgUser(headerView);
     }
 
     private static void setImgUser(View headerView) {
         ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
-        //imgUser.setImageResource(R.drawable.img_profil);
-
-        //TODO: Ne fonctionne pas…
-        /* imgUser.setOnClickListener(view ->
-                Navigation.findNavController(this, R.id.nav_host_fragment_content_main)
-                        .navigate(R.id.nav_user_account)
-        ); */
+        imgUser.setImageResource(R.drawable.user_logo);
     }
 
     @Override
