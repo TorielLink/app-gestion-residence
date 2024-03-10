@@ -9,10 +9,10 @@
             android:id="@+id/img_user_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/img_profil"
-            android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/user_account" />
+            android:contentDescription="@string/user_account"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_logo" />
 
         <EditText
             android:id="@+id/edit_text_first_name"

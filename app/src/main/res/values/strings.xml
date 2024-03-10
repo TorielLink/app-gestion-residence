@@ -89,5 +89,6 @@
     <!-- Get Habitat -->
     <string name="error_get_habitats">An error occurred while retrieving the habitats\' list</string>
     <string name="total_wattage_habitats">Total wattage : %s W</string>
+    <string name="error_get_appliances">An error occured while getting your appliances</string>
     <!-- Auto added values -->
 </resources>

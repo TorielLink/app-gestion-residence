@@ -24,7 +24,7 @@ public class MyNotificationsFragment extends Fragment {
         binding = FragmentMyNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMyNotifications;
+        final TextView textView = binding.txtMyNotifications;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

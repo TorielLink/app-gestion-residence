@@ -40,8 +40,8 @@ public class ListHabitatsFragment extends Fragment {
         binding = FragmentListHabitatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        ListView list = binding.listHabitat;
-        TextView tvTotalWattage = binding.textViewTotalWattage;
+        ListView list = binding.listHabitats;
+        TextView tvTotalWattage = binding.txtTotalWattage;
 
         ArrayList<Habitat> habitats = new ArrayList<>();
 

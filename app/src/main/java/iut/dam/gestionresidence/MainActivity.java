@@ -72,9 +72,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             if (email != null) {
                 TextView txtMail = headerView.findViewById(R.id.txt_user_email);
                 txtMail.setText(email);
-
             }
-
             TextView txtName = headerView.findViewById(R.id.txt_user_name);
             setUserNameFromToken(token, txtName);
 
@@ -82,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             Log.e(TAG, "Intent extras bundle is null");
         }
 
+        setImgUser(headerView);
+    }
+
+    private static void setImgUser(View headerView) {
         ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
         //imgUser.setImageResource(R.drawable.img_profil);
 
@@ -155,15 +157,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getUserName.php?token="+token;
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             String username;
-                JSONObject jsonObject;
-                try {
-                    jsonObject = new JSONObject(result);
-                    String firstname = jsonObject.getString("firstname");
-                    String lastname = jsonObject.getString("lastname");
-                    username = firstname + " " + lastname;
-                } catch (JSONException ex) {
-                    username = "GenericName";
-                }
+            JSONObject jsonObject;
+            try {
+                jsonObject = new JSONObject(result);
+                String firstname = jsonObject.getString("firstname");
+                String lastname = jsonObject.getString("lastname");
+                username = firstname + " " + lastname;
+            } catch (JSONException ex) {
+                username = "GenericName";
+            }
             textView.setText(username);
         });
     }
