@@ -1,17 +1,25 @@
 package iut.dam.gestionresidence.ui.fragments.user_account;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -64,14 +72,13 @@ public class UserAccountFragment extends Fragment {
 
         CheckBox checkBoxFirstName = binding.checkboxFirstName;
         CheckBox checkBoxLastName = binding.checkboxLastName;
-        CheckBox checkboxPassword = binding.checkboxPassword;
+        CheckBox checkBoxPassword = binding.checkboxPassword;
 
         EditText editTextFirstName = binding.editTextFirstName;
         EditText editTextLastName = binding.editTextLastName;
         EditText editTextPassword = binding.editTextPassword;
 
         binding.btnConfirmChanges.setOnClickListener(v -> {
-            //TODO: récupérer les anciennes valeurs (ou gérer depuis serveur les chaînes vides)
             String firstName = String.valueOf(editTextFirstName.getText());
             String lastName = String.valueOf(editTextLastName.getText());
             String password = String.valueOf(editTextPassword.getText());
@@ -80,7 +87,7 @@ public class UserAccountFragment extends Fragment {
                 firstName = String.valueOf(binding.editTextFirstName.getText());
             if (checkBoxLastName.isChecked())
                 lastName = String.valueOf(binding.editTextLastName.getText());
-            if (checkboxPassword.isChecked())
+            if (checkBoxPassword.isChecked())
                 password = String.valueOf(binding.editTextPassword.getText());
 
             String urlStringUserModif =
@@ -108,16 +115,43 @@ public class UserAccountFragment extends Fragment {
                     }
                 }
             });
+            checkBoxFirstName.setChecked(false);
+            checkBoxLastName.setChecked(false);
+            checkBoxPassword.setChecked(false);
         });
 
         checkBoxFirstName.setOnCheckedChangeListener((buttonView, isChecked) ->
                 editTextFirstName.setEnabled(isChecked));
         checkBoxLastName.setOnCheckedChangeListener((buttonView, isChecked) ->
                 editTextLastName.setEnabled(isChecked));
-        checkboxPassword.setOnCheckedChangeListener((buttonView, isChecked) ->
+        checkBoxPassword.setOnCheckedChangeListener((buttonView, isChecked) ->
                 editTextPassword.setEnabled(isChecked));
+
+        ImageView imgUserProfile = binding.imgUserProfile;
+
+        ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Intent data = result.getData();
+                        Uri uri = data.getData();
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media
+                                    .getBitmap(requireActivity().getContentResolver(), uri);
+                            imgUserProfile.setImageBitmap(bitmap);
+                        } catch (Exception e) {
+                            Toast.makeText(getActivity(), R.string.error_load_img,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        imgUserProfile.setOnClickListener(v -> openGallery(galleryLauncher));
     }
 
+    private void openGallery(ActivityResultLauncher<Intent> galleryLauncher) {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galleryLauncher.launch(intent);
+    }
 
     @Override
     public void onDestroyView() {

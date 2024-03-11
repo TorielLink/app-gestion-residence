@@ -108,4 +108,5 @@
     <string name="error_remove_habitat">An error occured while removing your habitat</string>
     <string name="remove_habitat">Remove habitat</string>
     <string name="habitat_id">Habitat ID</string>
+    <string name="error_load_img">Failed to load image</string>
 </resources>
