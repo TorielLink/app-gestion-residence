@@ -38,6 +38,65 @@
         app:layout_constraintTop_toBottomOf="@+id/list_habitat"
         tools:layout_editor_absoluteX="50dp" />
 
+    <TextView
+        android:id="@+id/title_add_habitat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_new_habitat"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text_floor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_total_wattage" />
+
+    <TextView
+        android:id="@+id/label_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/floor"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_floor"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_floor" />
+
+    <EditText
+        android:id="@+id/edit_text_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:autofillHints="floor"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_add_habitat" />
+
+    <TextView
+        android:id="@+id/label_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/area"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_area"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_area" />
+
+    <EditText
+        android:id="@+id/edit_text_area"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_floor"
+        android:autofillHints="postalAddress"/>
+
+    <Button
+        android:id="@+id/btn_add_habitat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_habitat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_area" />
 
     <TextView
         android:id="@+id/title_add_appliance"
@@ -115,63 +174,43 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_text_wattage" />
 
     <TextView
-        android:id="@+id/title_add_habitat"
+        android:id="@+id/title_remove_appliance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/add_new_habitat"
+        android:text="@string/remove_appliance"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_text_floor"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text_id_appliance_remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_total_wattage" />
+        app:layout_constraintTop_toBottomOf="@id/btn_add_appliance" />
 
     <TextView
-        android:id="@+id/label_floor"
+        android:id="@+id/label_id_appliance_remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/floor"
-        app:layout_constraintEnd_toStartOf="@id/edit_text_floor"
-        app:layout_constraintTop_toTopOf="@+id/edit_text_floor" />
+        android:text="@string/appliance_id"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_id_appliance_remove"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_id_appliance_remove" />
 
     <EditText
-        android:id="@+id/edit_text_floor"
+        android:id="@+id/edit_text_id_appliance_remove"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:autofillHints="floor"
         android:ems="10"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_add_habitat" />
-
-    <TextView
-        android:id="@+id/label_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/area"
-        app:layout_constraintEnd_toStartOf="@id/edit_text_area"
-        app:layout_constraintTop_toTopOf="@+id/edit_text_area" />
-
-    <EditText
-        android:id="@+id/edit_text_area"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_floor"
-        android:autofillHints="postalAddress"/>
+        app:layout_constraintTop_toBottomOf="@id/title_remove_appliance" />
 
     <Button
-        android:id="@+id/btn_add_habitat"
+        android:id="@+id/btn_remove_appliance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_new_habitat"
+        android:text="@string/remove_appliance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_area" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_id_appliance_remove" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

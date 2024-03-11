@@ -89,11 +89,15 @@
     <string name="total_wattage_habitats">Total wattage : %s W</string>
     <string name="error_get_appliances">An error occurred while getting your appliances</string>
     <string name="error_get_info_account">An error occurred while fetching your informations</string>
-    <string name="add_new_appliance">Add a new Appliance</string>
+    <string name="add_new_appliance">Add a new appliance</string>
     <string name="appliance_name">Name:</string>
     <string name="reference">Reference:</string>
     <string name="wattage">Wattage:</string>
     <string name="succes_add_appliance">Appliance added successfully</string>
     <string name="error_add_appliance">An error occurred while adding your appliance</string>
     <string name="network_error">A network error occured</string>
+    <string name="appliance_id">Appliance ID:</string>
+    <string name="remove_appliance">Remove appliance</string>
+    <string name="succes_remove_appliance">Appliance removed successfully</string>
+    <string name="error_remove_appliance">An error occured while removing your appliance</string>
 </resources>

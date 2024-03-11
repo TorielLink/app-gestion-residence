@@ -55,6 +55,9 @@ public class MyHabitatFragment extends Fragment {
         EditText etWattage = binding.editTextWattage;
         Button btnAddAppliance = binding.btnAddAppliance;
 
+        EditText etIdApplianceRm = binding.editTextIdApplianceRemove;
+        Button btnRemoveAppliance = binding.btnRemoveAppliance;
+
         String token = TokenManager.getToken();
 
         btnAddHabitat.setOnClickListener(view -> {
@@ -65,9 +68,43 @@ public class MyHabitatFragment extends Fragment {
             clickBtnAddAppliance(etNameAppliance, etReference, etWattage, token);
         });
 
+        btnRemoveAppliance.setOnClickListener(view ->{
+            clickbtnRemoveAppliance(etIdApplianceRm, token);
+        });
+
         getAppliances();
 
         return root;
+    }
+
+    private void clickbtnRemoveAppliance(EditText etIdApplianceRm, String token) {
+        int idRmAppliance = Integer.parseInt(etIdApplianceRm.getText().toString().trim());
+
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/removeAppliance.php?token="
+                + token + "&idAppliance=" + idRmAppliance;
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            if(result == null)
+                Log.d(TAG, "No response from the server!!!");
+            else {
+                if(result.equals("OK")) {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.succes_remove_appliance))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+                else {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.error_remove_appliance))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+            }
+        });
     }
 
     private void clickBtnAddAppliance(EditText etNameAppliance, EditText etReference, EditText etWattage, String token) {
