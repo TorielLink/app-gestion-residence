@@ -88,14 +88,18 @@
     <string name="error_get_habitats">An error occurred while retrieving the habitats\' list</string>
     <string name="total_wattage_habitats">Total wattage : %s W</string>
     <string name="error_get_appliances">An error occurred while getting your appliances</string>
-    <string name="error_get_info_account">An error occurred while fetching your informations</string>
+    <string name="error_get_info_account">An error occurred while fetching your information</string>
     <string name="add_new_appliance">Add a new appliance</string>
     <string name="appliance_name">Name:</string>
     <string name="reference">Reference:</string>
     <string name="wattage">Wattage:</string>
     <string name="succes_add_appliance">Appliance added successfully</string>
     <string name="error_add_appliance">An error occurred while adding your appliance</string>
-    <string name="network_error">A network error occured</string>
+    <string name="confirm_changes">Confirm changes</string>
+    <string name="success_change_user_parameters">Modifications successful!</string>
+    <string name="error_change_user_parameters">An error occurred while changing your account parameters</string>
+    <!-- Auto added values -->
+    <string name="network_error">A network error occurred</string>
     <string name="appliance_id">Appliance ID:</string>
     <string name="remove_appliance">Remove appliance</string>
     <string name="succes_remove_appliance">Appliance removed successfully</string>
