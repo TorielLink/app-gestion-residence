@@ -44,5 +44,25 @@
     <string name="total_wattage_habitats">Vataje total : %s W</string>
     <string name="menu_user_account">Mi cuenta</string>
     <string name="change_password">Cambiar contraseña</string>
+    <string name="error_get_appliances">Se produjo un error al recuperar la lista de equipos</string>
+    <string name="error_get_info_account">Se produjo un error al recuperar su información</string>
+    <string name="add_new_appliance">Agregar equipo</string>
+    <string name="appliance_name">Apellido ;</string>
+    <string name="reference">Referencia :</string>
+    <string name="wattage">Potencia</string>
+    <string name="succes_add_appliance">Equipo agregado exitosamente</string>
+    <string name="error_add_appliance">Se produjo un error al recuperar la adición de su equipo</string>
     <string name="confirm_changes">Confirmar cambios</string>
+    <string name="success_change_user_parameters">¡Cambio realizado!</string>
+    <string name="error_change_user_parameters">Se produjo un error al cambiar los parámetros de su cuenta</string>
+    <string name="network_error">Se ha producido un error de red</string>
+    <string name="appliance_id">Identificación del equipo:</string>
+    <string name="remove_appliance">Quitar equipo</string>
+    <string name="succes_remove_appliance">Equipo eliminado exitosamente</string>
+    <string name="error_remove_appliance">Se produjo un error al eliminar su equipo.</string>
+    <string name="succes_remove_habitat">Hábitat eliminado con éxito</string>
+    <string name="error_remove_habitat">Se produjo un error al eliminar tu hábitat.</string>
+    <string name="remove_habitat">Eliminar hábitat</string>
+    <string name="habitat_id">Identificación de hábitat</string>
+    <string name="error_load_img">No se pudo cargar la imagen</string>
 </resources>

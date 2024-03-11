@@ -65,9 +65,11 @@
     <string name="appliance_name">Nom :</string>
     <string name="reference">Référence :</string>
     <string name="wattage">Wattage :</string>
-    <string name="succes_add_appliance">Équipement ajoutté avec succès</string>
-    <string name="error_add_appliance">Une erreur est survenue lors de la récupération de l\'ajout de votre équippement</string>
+    <string name="succes_add_appliance">Équipement ajouté avec succès</string>
+    <string name="error_add_appliance">Une erreur est survenue lors de la récupération de l\'ajout de votre équipement</string>
     <string name="confirm_changes">"Confirmer les modifications "</string>
+    <string name="success_change_user_parameters">Modification effectuée!</string>
+    <string name="error_change_user_parameters">Une erreur s\'est produite lors de la modification des paramètres de votre compte</string>
     <string name="network_error">Une erreur réseau est survenue</string>
     <string name="appliance_id">ID d\'équipement :</string>
     <string name="remove_appliance">Supprimer l\'équipement</string>
@@ -77,6 +79,7 @@
     <string name="error_remove_habitat">Une erreur est survenue lors de la suppression de votre habitat</string>
     <string name="remove_habitat">Supprimer l\'habitat</string>
     <string name="habitat_id">ID d\'habitat</string>
+    <string name="error_load_img">Échec du chargement de l\'image</string>
 
     <!-- Auto added values -->
 </resources>

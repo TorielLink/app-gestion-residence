@@ -44,5 +44,25 @@
     <string name="total_wattage_habitats">Gesamtwattzahl : %s W</string>
     <string name="menu_user_account">Mein Konto</string>
     <string name="change_password">Passwort ändern</string>
+    <string name="error_get_appliances">Beim Abrufen der Geräteliste ist ein Fehler aufgetreten</string>
+    <string name="error_get_info_account">Beim Abrufen Ihrer Informationen ist ein Fehler aufgetreten</string>
+    <string name="add_new_appliance">Ausrüstung hinzufügen</string>
+    <string name="appliance_name">"Name : "</string>
+    <string name="reference">Referenz :</string>
+    <string name="wattage">Wattzahl :</string>
+    <string name="succes_add_appliance">Equipo agregado exitosamente</string>
+    <string name="error_add_appliance">Beim Abrufen der Ergänzung Ihrer Ausrüstung ist ein Fehler aufgetreten</string>
     <string name="confirm_changes">Bestätige Änderungen</string>
+    <string name="success_change_user_parameters">Änderung vorgenommen!</string>
+    <string name="error_change_user_parameters">Beim Ändern Ihrer Kontoeinstellungen ist ein Fehler aufgetreten</string>
+    <string name="network_error">Es ist ein Netzwerkfehler aufgetreten</string>
+    <string name="appliance_id">Geräte-ID:</string>
+    <string name="remove_appliance">Ausrüstung entfernen</string>
+    <string name="succes_remove_appliance">Ausrüstung erfolgreich gelöscht</string>
+    <string name="error_remove_appliance">Beim Löschen Ihrer Ausrüstung ist ein Fehler aufgetreten</string>
+    <string name="succes_remove_habitat">Lebensraum erfolgreich entfernt</string>
+    <string name="error_remove_habitat">Beim Löschen Ihres Lebensraums ist ein Fehler aufgetreten</string>
+    <string name="remove_habitat">Lebensraum entfernen</string>
+    <string name="habitat_id">Lebensraum-ID</string>
+    <string name="error_load_img">Bild konnte nicht geladen werden</string>
 </resources>
