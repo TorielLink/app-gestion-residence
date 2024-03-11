@@ -38,6 +38,82 @@
         app:layout_constraintTop_toBottomOf="@+id/list_habitat"
         tools:layout_editor_absoluteX="50dp" />
 
+
+    <TextView
+        android:id="@+id/title_add_appliance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_new_appliance"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text_appliance_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_habitat" />
+
+    <TextView
+        android:id="@+id/label_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appliance_name"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_appliance_name"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_appliance_name" />
+
+    <EditText
+        android:id="@+id/edit_text_appliance_name"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:autofillHints="floor"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_add_appliance" />
+
+    <TextView
+        android:id="@+id/label_reference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reference"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_reference"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_reference" />
+
+    <EditText
+        android:id="@+id/edit_text_reference"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_appliance_name" />
+
+    <TextView
+        android:id="@+id/label_wattage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wattage"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_wattage"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_wattage" />
+
+    <EditText
+        android:id="@+id/edit_text_wattage"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_reference" />
+
+    <Button
+        android:id="@+id/btn_add_appliance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_appliance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_wattage" />
+
     <TextView
         android:id="@+id/title_add_habitat"
         android:layout_width="wrap_content"
@@ -88,7 +164,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_floor"
         android:autofillHints="postalAddress"/>
-
 
     <Button
         android:id="@+id/btn_add_habitat"

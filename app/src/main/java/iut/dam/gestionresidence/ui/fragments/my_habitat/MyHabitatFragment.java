@@ -50,15 +50,56 @@ public class MyHabitatFragment extends Fragment {
         EditText etArea = binding.editTextArea;
         Button btnAddHabitat = binding.btnAddHabitat;
 
+        EditText etNameAppliance = binding.editTextApplianceName;
+        EditText etReference = binding.editTextReference;
+        EditText etWattage = binding.editTextWattage;
+        Button btnAddAppliance = binding.btnAddAppliance;
+
         String token = TokenManager.getToken();
 
         btnAddHabitat.setOnClickListener(view -> {
             clickBtnAddHabitat(etFloor, etArea, token);
         });
 
+        btnAddAppliance.setOnClickListener(view ->{
+            clickBtnAddAppliance(etNameAppliance, etReference, etWattage, token);
+        });
+
         getAppliances();
 
         return root;
+    }
+
+    private void clickBtnAddAppliance(EditText etNameAppliance, EditText etReference, EditText etWattage, String token) {
+        String name = etNameAppliance.getText().toString().trim();
+        String ref = etReference.getText().toString().trim();
+        int wattage = Integer.parseInt(etWattage.getText().toString().trim());
+
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/addAppliance.php?token="
+                + token + "&name=" + name + "&reference=" + ref + "&wattage=" + wattage;
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            if(result == null)
+                Log.d(TAG, "No response from the server!!!");
+            else {
+                if(result.equals("OK")) {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.succes_add_appliance))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+                else {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.error_add_appliance))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+            }
+        });
     }
 
     private void clickBtnAddHabitat(EditText etFloor, EditText etArea, String token) {

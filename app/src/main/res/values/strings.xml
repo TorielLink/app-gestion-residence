@@ -79,17 +79,20 @@
     <!-- User Account -->
     <string name="change_password">Change password</string>
 
-    <!-- Add Habitat -->
+    <!-- My Habitat -->
     <string name="add_new_habitat">Add a new habitat</string>
     <string name="floor">Floor</string>
     <string name="area">Area</string>
     <string name="succes_add_habitat">Habitat added successfully</string>
     <string name="error_add_habitat">An error occurred while adding your habitat</string>
-
-    <!-- Get Habitat -->
     <string name="error_get_habitats">An error occurred while retrieving the habitats\' list</string>
     <string name="total_wattage_habitats">Total wattage : %s W</string>
-    <string name="error_get_appliances">An error occured while getting your appliances</string>
-    <string name="error_get_info_account">An error occured while fetching your informations</string>
-    <!-- Auto added values -->
+    <string name="error_get_appliances">An error occurred while getting your appliances</string>
+    <string name="error_get_info_account">An error occurred while fetching your informations</string>
+    <string name="add_new_appliance">Add a new Appliance</string>
+    <string name="appliance_name">Name:</string>
+    <string name="reference">Reference:</string>
+    <string name="wattage">Wattage:</string>
+    <string name="succes_add_appliance">Appliance added successfully</string>
+    <string name="error_add_appliance">An error occurred while adding your appliance</string>
 </resources>
