@@ -104,4 +104,8 @@
     <string name="remove_appliance">Remove appliance</string>
     <string name="succes_remove_appliance">Appliance removed successfully</string>
     <string name="error_remove_appliance">An error occured while removing your appliance</string>
+    <string name="succes_remove_habitat">Habitat removed successfully</string>
+    <string name="error_remove_habitat">An error occured while removing your habitat</string>
+    <string name="remove_habitat">Remove habitat</string>
+    <string name="habitat_id">Habitat ID</string>
 </resources>

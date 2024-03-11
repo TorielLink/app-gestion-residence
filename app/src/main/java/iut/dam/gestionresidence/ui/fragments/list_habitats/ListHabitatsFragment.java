@@ -1,10 +1,15 @@
 package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -94,7 +99,44 @@ public class ListHabitatsFragment extends Fragment {
         HabitatAdapter adapter = new HabitatAdapter(requireContext(), habitats);
         list.setAdapter(adapter);
 
+        Button btnHabitatRemove = binding.btnRemoveHabitat;
+        EditText editTextIdHabitatRemove = binding.editTextIdHabitatRemove;
+
+        btnHabitatRemove.setOnClickListener(view -> {
+            clickBtnHabitatRemove(editTextIdHabitatRemove);
+        });
+
         return root;
+    }
+
+    private void clickBtnHabitatRemove(EditText editTextIdHabitatRemove) {
+        int idRmHabitat = Integer.parseInt(editTextIdHabitatRemove.getText().toString().trim());
+
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/removeHabitat.php?token="
+                + TokenManager.getToken() + "&idHabitat=" + idRmHabitat;
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            if(result == null)
+                Log.d(TAG, "No response from the server!!!");
+            else {
+                if(result.equals("OK")) {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.succes_remove_habitat))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+                else {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.error_remove_habitat))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
+                }
+            }
+        });
     }
 
     @Override

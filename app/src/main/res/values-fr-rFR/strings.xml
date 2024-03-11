@@ -69,6 +69,14 @@
     <string name="error_add_appliance">Une erreur est survenue lors de la récupération de l\'ajout de votre équippement</string>
     <string name="confirm_changes">"Confirmer les modifications "</string>
     <string name="network_error">Une erreur réseau est survenue</string>
+    <string name="appliance_id">ID d\'équipement :</string>
+    <string name="remove_appliance">Supprimer l\'équipement</string>
+    <string name="succes_remove_appliance">Équipement supprimé avec succès</string>
+    <string name="error_remove_appliance">Une erreur est survenue lors de la suppression de votre équipement</string>
+    <string name="succes_remove_habitat">Habitat supprimé avec succès</string>
+    <string name="error_remove_habitat">Une erreur est survenue lors de la suppression de votre habitat</string>
+    <string name="remove_habitat">Supprimer l\'habitat</string>
+    <string name="habitat_id">ID d\'habitat</string>
 
     <!-- Auto added values -->
 </resources>
