@@ -63,14 +63,21 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
             residentTV.setText(currentItem.getName());
             numberFloorTV.setText(currentItem.getFloor());
 
+            int nbAppliances = currentItem.getAppliances().size();
+
+            for(ImageView i : appliancesList){
+                i.setVisibility(View.INVISIBLE);
+            }
+
             int nb = 0;
             for(ImageView i : appliancesList){
                 nb++;
-                if(!containsAppliance(nb, currentItem.getAppliances())){
-                    i.setVisibility(View.INVISIBLE);
+                if(nbAppliances >= nb){
+                    // la base de données ne faisant pas correspondre l'ID à un équipement,
+                    // nous sommes obligés de donner une image aléatoire à chaque équipement
+                    i.setVisibility(View.VISIBLE);
                 }
             }
-            int nbAppliances = currentItem.getAppliances().size();
             String txtAppliances = "";
             switch (nbAppliances) {
                 case 0: txtAppliances = "Aucun équipement";
@@ -82,15 +89,6 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
             applianceTV.setText(txtAppliances);
         }
         return convertView;
-    }
-
-    private boolean containsAppliance(int i, List<Appliance> appliances) {
-        for(Appliance a : appliances){
-            if(i == a.getId()){
-                return true;
-            }
-        }
-        return false;
     }
 
     public static abstract class OnItemClickListener implements AdapterView.OnItemClickListener {

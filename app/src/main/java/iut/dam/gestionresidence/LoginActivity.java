@@ -59,7 +59,13 @@ public class LoginActivity extends AppCompatActivity {
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/login.php?email="+email+"&password="+password;
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             if (result == null)
-                Log.d(TAG, "No response from the server!!!");
+                new AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.login_account))
+                        .setMessage(getString(R.string.network_error))
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            dialog.dismiss();
+                        })
+                        .show();
             else {
                 JSONObject jsonObject = null;
                 try {

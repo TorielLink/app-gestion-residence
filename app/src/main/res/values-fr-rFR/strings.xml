@@ -67,5 +67,6 @@
     <string name="wattage">Wattage :</string>
     <string name="succes_add_appliance">Équipement ajoutté avec succès</string>
     <string name="error_add_appliance">Une erreur est survenue lors de la récupération de l\'ajout de votre équippement</string>
+    <string name="network_error">Une erreur réseau est survenue</string>
 
 </resources>
