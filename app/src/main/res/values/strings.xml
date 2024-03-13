@@ -98,6 +98,7 @@
     <string name="confirm_changes">Confirm changes</string>
     <string name="success_change_user_parameters">Modifications successful!</string>
     <string name="error_change_user_parameters">An error occurred while changing your account parameters</string>
+
     <!-- Auto added values -->
     <string name="network_error">A network error occurred</string>
     <string name="appliance_id">Appliance ID:</string>
@@ -109,4 +110,8 @@
     <string name="remove_habitat">Remove habitat</string>
     <string name="habitat_id">Habitat ID</string>
     <string name="error_load_img">Failed to load image</string>
+    <string name="notif_overrun">Overrun alert</string>
+    <string name="notif_overrun_body">Wattage exceeded for the selected slot</string>
+    <string name="notif_slot">Free slot</string>
+    <string name="notif_slot_body">A neighbor has freed up one of the slots you wanted</string>
 </resources>

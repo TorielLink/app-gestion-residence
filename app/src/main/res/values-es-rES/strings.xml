@@ -65,4 +65,8 @@
     <string name="remove_habitat">Eliminar hábitat</string>
     <string name="habitat_id">Identificación de hábitat</string>
     <string name="error_load_img">No se pudo cargar la imagen</string>
+    <string name="notif_overrun">Alerta de rebasamiento</string>
+    <string name="notif_overrun_body">Vatios superados para la ranura seleccionada</string>
+    <string name="notif_slot">Tragaperras gratis</string>
+    <string name="notif_slot_body">Un vecino ha liberado una de las ranuras que querías</string>
 </resources>

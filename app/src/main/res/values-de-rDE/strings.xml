@@ -65,4 +65,8 @@
     <string name="remove_habitat">Lebensraum entfernen</string>
     <string name="habitat_id">Lebensraum-ID</string>
     <string name="error_load_img">Bild konnte nicht geladen werden</string>
+    <string name="notif_overrun">Überlaufalarm</string>
+    <string name="notif_overrun_body">Überschreitung der Wattleistung für den ausgewählten Steckplatz</string>
+    <string name="notif_slot">Freier Steckplatz</string>
+    <string name="notif_slot_body">Ein Nachbar hat einen der von Ihnen gewünschten Plätze frei gemacht</string>
 </resources>

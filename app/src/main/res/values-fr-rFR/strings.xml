@@ -80,6 +80,10 @@
     <string name="remove_habitat">Supprimer l\'habitat</string>
     <string name="habitat_id">ID d\'habitat</string>
     <string name="error_load_img">Échec du chargement de l\'image</string>
+    <string name="notif_overrun">Alerte de dépassement</string>
+    <string name="notif_overrun_body">Dépassement de wattage pour le créneau sélectionné</string>
+    <string name="notif_slot">Libération d\'un créneau</string>
+    <string name="notif_slot_body">Un voisin a libéré un des créneaux que vous désiriez</string>
 
     <!-- Auto added values -->
 </resources>
