@@ -179,6 +179,10 @@ public class MyHabitatFragment extends Fragment {
             try {
                 jsonObject = new JSONObject(result);
                 String id_habitat = jsonObject.getString("habitat_id");
+                if(id_habitat.equals("null")) {
+                    //no data found in BD
+                    return;
+                }
                 String firstname = jsonObject.getString("firstname");
                 String lastname = jsonObject.getString("lastname");
                 username = firstname + " " + lastname;
