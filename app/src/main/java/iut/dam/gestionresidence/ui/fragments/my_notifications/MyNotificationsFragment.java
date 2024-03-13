@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import iut.dam.gestionresidence.adapter.NotificationAdapter;
+import iut.dam.gestionresidence.databinding.FragmentListHabitatsBinding;
 import iut.dam.gestionresidence.databinding.FragmentMyNotificationsBinding;
+import iut.dam.gestionresidence.entities.Notification;
 
 public class MyNotificationsFragment extends Fragment {
 
@@ -18,14 +23,21 @@ public class MyNotificationsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MyNotificationsViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(MyNotificationsViewModel.class);
 
         binding = FragmentMyNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.txtMyNotifications;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        ListView listView = binding.listNotifications;
+
+        List<Notification> itemList = new ArrayList<>();
+        //TODO
+        itemList.add(new Notification("Alerte de dépassement", "Dépassement de wattage pour le créneau sélectionné"));
+        itemList.add(new Notification("Libération d'un créneau", "Un voisin a libéré un des créneaux que vous désiriez"));
+
+        NotificationAdapter adapter = new NotificationAdapter(requireContext(), itemList);
+
+        listView.setAdapter(adapter);
+
         return root;
     }
 

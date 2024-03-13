@@ -39,8 +39,6 @@ public class ListHabitatsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ListHabitatsViewModel galleryViewModel =
-                new ViewModelProvider(this).get(ListHabitatsViewModel.class);
 
         binding = FragmentListHabitatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

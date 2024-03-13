@@ -40,8 +40,6 @@ public class MyHabitatFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MyHabitatViewModel homeViewModel =
-                new ViewModelProvider(this).get(MyHabitatViewModel.class);
 
         binding = FragmentMyHabitatBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
