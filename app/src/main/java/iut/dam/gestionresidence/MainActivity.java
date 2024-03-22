@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
         setImgUser(imgUser);
 
-        //TODO : passe bien sur le fragment mais ne s'enlève pas de sur le côté
         imgUser.setOnClickListener(view -> {
             navController.navigate(R.id.nav_user_account);
             drawer.closeDrawers();

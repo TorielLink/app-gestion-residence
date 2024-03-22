@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import iut.dam.gestionresidence.entities.Appliance;
 import iut.dam.gestionresidence.entities.Habitat;
 import iut.dam.gestionresidence.R;
 
@@ -78,7 +77,7 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
                     i.setVisibility(View.VISIBLE);
                 }
             }
-            String txtAppliances = "";
+            String txtAppliances;
             switch (nbAppliances) {
                 //TODO: les strings ne fonctionnnent pas visiblement…
                 case 0: txtAppliances = String.valueOf(R.string.no_appliances);
