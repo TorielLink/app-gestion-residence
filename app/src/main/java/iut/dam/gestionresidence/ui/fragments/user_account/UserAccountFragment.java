@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -46,29 +47,7 @@ public class UserAccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getUserName.php?token="
-                + TokenManager.getToken();
-
-        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-            JSONObject jsonObject;
-            Log.d("debugRemi", urlString);
-            try {
-                jsonObject = new JSONObject(result);
-                String firstName = jsonObject.getString("firstname");
-                String lastName = jsonObject.getString("lastname");
-                String email = jsonObject.getString("email");
-                binding.editTextFirstName.setText(firstName);
-                binding.editTextLastName.setText(lastName);
-                binding.editTextEmail.setText(email);
-
-            } catch (JSONException ex) {
-                new AlertDialog.Builder(getActivity())
-                        .setTitle(getString(R.string.menu_user_account))
-                        .setMessage(getString(R.string.error_get_info_account))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
-                        .show();
-            }
-        });
+        getUserDataFromServer();
 
         CheckBox checkBoxFirstName = binding.checkboxFirstName;
         CheckBox checkBoxLastName = binding.checkboxLastName;
@@ -79,45 +58,7 @@ public class UserAccountFragment extends Fragment {
         EditText editTextPassword = binding.editTextPassword;
 
         binding.btnConfirmChanges.setOnClickListener(v -> {
-            String firstName = String.valueOf(editTextFirstName.getText());
-            String lastName = String.valueOf(editTextLastName.getText());
-            String password = String.valueOf(editTextPassword.getText());
-
-            if (checkBoxFirstName.isChecked())
-                firstName = String.valueOf(binding.editTextFirstName.getText());
-            if (checkBoxLastName.isChecked())
-                lastName = String.valueOf(binding.editTextLastName.getText());
-            if (checkBoxPassword.isChecked())
-                password = String.valueOf(binding.editTextPassword.getText());
-
-            String urlStringUserModif =
-                    "http://remi-lem.alwaysdata.net/gestionResidence/changeUserParameters.php?token="
-                    + TokenManager.getToken() + "&firstname=" + firstName + "&lastname=" + lastName
-                    + "&password=" + password;
-
-            Ion.with(this).load(urlStringUserModif).asString().setCallback((e, result) -> {
-                if(result == null)
-                    Log.d(TAG, "No response from the server!!!");
-                else {
-                    if(result.equals("OK")) {
-                        new AlertDialog.Builder(getActivity())
-                                .setTitle(getString(R.string.success_change_user_parameters))
-                                .setPositiveButton(android.R.string.ok, (dialog, which) ->
-                                        dialog.dismiss())
-                                .show();
-                    }
-                    else {
-                        new AlertDialog.Builder(getActivity())
-                                .setTitle(getString(R.string.error_change_user_parameters))
-                                .setPositiveButton(android.R.string.ok,
-                                        (dialog, which) -> dialog.dismiss())
-                                .show();
-                    }
-                }
-            });
-            checkBoxFirstName.setChecked(false);
-            checkBoxLastName.setChecked(false);
-            checkBoxPassword.setChecked(false);
+            btnConfirmChangesClicked(editTextFirstName, editTextLastName, editTextPassword, checkBoxFirstName, checkBoxLastName, checkBoxPassword);
         });
 
         checkBoxFirstName.setOnCheckedChangeListener((buttonView, isChecked) ->
@@ -146,6 +87,77 @@ public class UserAccountFragment extends Fragment {
                 });
 
         imgUserProfile.setOnClickListener(v -> openGallery(galleryLauncher));
+
+        TextView textViewEcoCoin = binding.txtEcoCoin;
+
+        textViewEcoCoin.setText(getString(R.string.my_eco_coins_text, 5));//TODO nb eco coins
+    }
+
+    private void btnConfirmChangesClicked(EditText editTextFirstName, EditText editTextLastName, EditText editTextPassword, CheckBox checkBoxFirstName, CheckBox checkBoxLastName, CheckBox checkBoxPassword) {
+        String firstName = String.valueOf(editTextFirstName.getText());
+        String lastName = String.valueOf(editTextLastName.getText());
+        String password = String.valueOf(editTextPassword.getText());
+
+        if (checkBoxFirstName.isChecked())
+            firstName = String.valueOf(binding.editTextFirstName.getText());
+        if (checkBoxLastName.isChecked())
+            lastName = String.valueOf(binding.editTextLastName.getText());
+        if (checkBoxPassword.isChecked())
+            password = String.valueOf(binding.editTextPassword.getText());
+
+        String urlStringUserModif =
+                "http://remi-lem.alwaysdata.net/gestionResidence/changeUserParameters.php?token="
+                        + TokenManager.getToken() + "&firstname=" + firstName + "&lastname=" + lastName
+                        + "&password=" + password;
+
+        Ion.with(this).load(urlStringUserModif).asString().setCallback((e, result) -> {
+            if(result == null)
+                Log.d(TAG, "No response from the server!!!");
+            else {
+                if(result.equals("OK")) {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.success_change_user_parameters))
+                            .setPositiveButton(android.R.string.ok, (dialog, which) ->
+                                    dialog.dismiss())
+                            .show();
+                }
+                else {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(getString(R.string.error_change_user_parameters))
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
+                            .show();
+                }
+            }
+        });
+        checkBoxFirstName.setChecked(false);
+        checkBoxLastName.setChecked(false);
+        checkBoxPassword.setChecked(false);
+    }
+
+    private void getUserDataFromServer() {
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getUserName.php?token="
+                + TokenManager.getToken();
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            JSONObject jsonObject;
+            try {
+                jsonObject = new JSONObject(result);
+                String firstName = jsonObject.getString("firstname");
+                String lastName = jsonObject.getString("lastname");
+                String email = jsonObject.getString("email");
+                binding.editTextFirstName.setText(firstName);
+                binding.editTextLastName.setText(lastName);
+                binding.editTextEmail.setText(email);
+
+            } catch (JSONException ex) {
+                new AlertDialog.Builder(getActivity())
+                        .setTitle(getString(R.string.menu_user_account))
+                        .setMessage(getString(R.string.error_get_info_account))
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
+                        .show();
+            }
+        });
     }
 
     private void openGallery(ActivityResultLauncher<Intent> galleryLauncher) {

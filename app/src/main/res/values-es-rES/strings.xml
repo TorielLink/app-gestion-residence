@@ -72,4 +72,6 @@
     <string name="no_appliances">Sin equipamiento</string>
     <string name="one_appliances">1 equipamiento</string>
     <string name="many_appliances">%1$d equipamiento</string>
+    <string name="my_eco_coins">Mis eco-monedas</string>
+    <string name="my_eco_coins_text">Actualmente tienes %1$d eco-coins</string>
 </resources>

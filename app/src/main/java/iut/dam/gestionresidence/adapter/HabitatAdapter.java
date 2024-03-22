@@ -79,7 +79,6 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
             }
             String txtAppliances;
             switch (nbAppliances) {
-                //TODO: les strings ne fonctionnnent pas visiblement…
                 case 0: txtAppliances = mContext.getString(R.string.no_appliances);
 
                     break;

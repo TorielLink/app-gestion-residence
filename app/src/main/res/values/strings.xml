@@ -119,4 +119,6 @@
     <string name="notif_slot_body">A neighbor has freed up one of the slots you wanted</string>
     <string name="one_appliances">1 equipment</string>
     <string name="many_appliances">%1$d equipments</string>
+    <string name="my_eco_coins">My eco-coins</string>
+    <string name="my_eco_coins_text">You currently have %1$d eco-coins</string>
 </resources>

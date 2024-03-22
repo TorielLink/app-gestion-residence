@@ -87,6 +87,8 @@
     <string name="no_appliances">Aucun équipement</string>
     <string name="one_appliances">1 équipement</string>
     <string name="many_appliances">%1$d équipements</string>
+    <string name="my_eco_coins">Mon éco-monnaie</string>
+    <string name="my_eco_coins_text">Vous avez actuellement %1$d éco-pièces</string>
 
     <!-- Auto added values -->
 </resources>
