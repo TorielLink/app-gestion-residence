@@ -1,6 +1,5 @@
 package iut.dam.gestionresidence.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,12 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import iut.dam.gestionresidence.R;
@@ -46,6 +43,7 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
         TextView title = convertView.findViewById(R.id.titleTextView);
         TextView subtitle = convertView.findViewById(R.id.subtitleTextView);
 
+        assert item != null;
         title.setText(item.getTitle());
         subtitle.setText(item.getSubtitle());
 

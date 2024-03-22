@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnGoogle.setOnClickListener(view -> {
-
+            //TODO : connect with Google Sign
         });
     }
     private void testPassword(String email, String password){

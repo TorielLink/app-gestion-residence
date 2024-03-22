@@ -61,13 +61,11 @@ public class Habitat {
 
     public static Habitat getFromJson(String json){
         Gson gson = new Gson();
-        Habitat obj = gson.fromJson(json, Habitat.class);
-        return obj;
+        return gson.fromJson(json, Habitat.class);
     }
     public static List<Habitat> getListFromJson(String json){
         Gson gson = new Gson();
         Type type = new TypeToken<List<Habitat>>(){}.getType();
-        List<Habitat> list = gson.fromJson(json, type);
-        return list;
+        return gson.fromJson(json, type);
     }
 }

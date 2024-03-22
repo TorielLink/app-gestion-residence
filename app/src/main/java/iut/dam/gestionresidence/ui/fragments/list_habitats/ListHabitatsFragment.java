@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.koushikdutta.ion.Ion;
 
@@ -52,7 +51,6 @@ public class ListHabitatsFragment extends Fragment {
                 + TokenManager.getToken();
 
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-            JSONObject jsonObject = null;
             long totalWattage = 0;
             try {
                 JSONArray jsonArray = new JSONArray(result);
@@ -87,9 +85,7 @@ public class ListHabitatsFragment extends Fragment {
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.menu_list_habitats))
                         .setMessage(getString(R.string.error_get_habitats))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            dialog.dismiss();
-                        })
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                         .show();
             }
         });
@@ -100,9 +96,7 @@ public class ListHabitatsFragment extends Fragment {
         Button btnHabitatRemove = binding.btnRemoveHabitat;
         EditText editTextIdHabitatRemove = binding.editTextIdHabitatRemove;
 
-        btnHabitatRemove.setOnClickListener(view -> {
-            clickBtnHabitatRemove(editTextIdHabitatRemove);
-        });
+        btnHabitatRemove.setOnClickListener(view -> clickBtnHabitatRemove(editTextIdHabitatRemove));
 
         return root;
     }
@@ -120,17 +114,13 @@ public class ListHabitatsFragment extends Fragment {
                 if(result.equals("OK")) {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.succes_remove_habitat))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                             .show();
                 }
                 else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.error_remove_habitat))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                             .show();
                 }
             }

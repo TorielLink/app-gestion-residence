@@ -14,7 +14,6 @@ import java.util.List;
 
 import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.adapter.NotificationAdapter;
-import iut.dam.gestionresidence.databinding.FragmentListHabitatsBinding;
 import iut.dam.gestionresidence.databinding.FragmentMyNotificationsBinding;
 import iut.dam.gestionresidence.entities.Notification;
 

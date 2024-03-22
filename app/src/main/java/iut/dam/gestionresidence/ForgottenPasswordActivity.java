@@ -15,7 +15,7 @@ import com.koushikdutta.ion.Ion;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ForgottenPasswordActivity  extends AppCompatActivity {
+public class ForgottenPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class ForgottenPasswordActivity  extends AppCompatActivity {
                 if(result == null)
                     Log.d(TAG, "No response from the server!!!");
                 else {
-                    JSONObject jsonObject = null;
+                    JSONObject jsonObject;
                     try {
                         jsonObject = new JSONObject(result);
                         String password = jsonObject.getString("password");

@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.koushikdutta.ion.Ion;
 
@@ -58,24 +57,18 @@ public class MyHabitatFragment extends Fragment {
 
         String token = TokenManager.getToken();
 
-        btnAddHabitat.setOnClickListener(view -> {
-            clickBtnAddHabitat(etFloor, etArea, token);
-        });
+        btnAddHabitat.setOnClickListener(view -> clickBtnAddHabitat(etFloor, etArea, token));
 
-        btnAddAppliance.setOnClickListener(view ->{
-            clickBtnAddAppliance(etNameAppliance, etReference, etWattage, token);
-        });
+        btnAddAppliance.setOnClickListener(view -> clickBtnAddAppliance(etNameAppliance, etReference, etWattage, token));
 
-        btnRemoveAppliance.setOnClickListener(view ->{
-            clickbtnRemoveAppliance(etIdApplianceRm, token);
-        });
+        btnRemoveAppliance.setOnClickListener(view -> clickBtnRemoveAppliance(etIdApplianceRm, token));
 
         getAppliances();
 
         return root;
     }
 
-    private void clickbtnRemoveAppliance(EditText etIdApplianceRm, String token) {
+    private void clickBtnRemoveAppliance(EditText etIdApplianceRm, String token) {
         int idRmAppliance = Integer.parseInt(etIdApplianceRm.getText().toString().trim());
 
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/removeAppliance.php?token="
@@ -88,24 +81,23 @@ public class MyHabitatFragment extends Fragment {
                 if(result.equals("OK")) {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.succes_remove_appliance))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
                 else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.error_remove_appliance))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
             }
         });
     }
 
-    private void clickBtnAddAppliance(EditText etNameAppliance, EditText etReference, EditText etWattage, String token) {
+    private void clickBtnAddAppliance(EditText etNameAppliance, EditText etReference,
+                                      EditText etWattage, String token) {
         String name = etNameAppliance.getText().toString().trim();
         String ref = etReference.getText().toString().trim();
         int wattage = Integer.parseInt(etWattage.getText().toString().trim());
@@ -120,17 +112,15 @@ public class MyHabitatFragment extends Fragment {
                 if(result.equals("OK")) {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.succes_add_appliance))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
                 else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.error_add_appliance))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
             }
@@ -151,17 +141,15 @@ public class MyHabitatFragment extends Fragment {
                 if(result.equals("OK")) {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.succes_add_habitat))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
                 else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.error_add_habitat))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok,
+                                    (dialog, which) -> dialog.dismiss())
                             .show();
                 }
             }
@@ -188,9 +176,8 @@ public class MyHabitatFragment extends Fragment {
             } catch (JSONException ex) {
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.error_get_habitats))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            dialog.dismiss();
-                        })
+                        .setPositiveButton(android.R.string.ok,
+                                (dialog, which) -> dialog.dismiss())
                         .show();
             }
         });
@@ -206,7 +193,6 @@ public class MyHabitatFragment extends Fragment {
                 + TokenManager.getToken();
 
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-            JSONObject jsonObject = null;
             long totalWattage = 0;
             try {
                 JSONArray jsonArray = new JSONArray(result);
@@ -244,9 +230,8 @@ public class MyHabitatFragment extends Fragment {
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.menu_list_habitats))
                         .setMessage(getString(R.string.error_get_appliances))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            dialog.dismiss();
-                        })
+                        .setPositiveButton(android.R.string.ok,
+                                (dialog, which) -> dialog.dismiss())
                         .show();
             }
         });
