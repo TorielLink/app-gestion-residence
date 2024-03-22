@@ -99,6 +99,9 @@
     <string name="success_change_user_parameters">Modifications successful!</string>
     <string name="error_change_user_parameters">An error occurred while changing your account parameters</string>
 
+    <!-- Habitat Adapter -->
+    <string name="no_appliances">No equipment</string>
+
     <!-- Auto added values -->
     <string name="network_error">A network error occurred</string>
     <string name="appliance_id">Appliance ID:</string>
@@ -114,4 +117,6 @@
     <string name="notif_overrun_body">Wattage exceeded for the selected slot</string>
     <string name="notif_slot">Free slot</string>
     <string name="notif_slot_body">A neighbor has freed up one of the slots you wanted</string>
+    <string name="one_appliances">1 equipment</string>
+    <string name="many_appliances">equipments</string>
 </resources>

@@ -1,11 +1,9 @@
 package iut.dam.gestionresidence;
 
-import static android.content.ContentValues.TAG;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -52,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnGoogle.setOnClickListener(view -> {
-            // TODO
+
         });
     }
     private void testPassword(String email, String password){
@@ -62,12 +60,10 @@ public class LoginActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setTitle(getString(R.string.login_account))
                         .setMessage(getString(R.string.network_error))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            dialog.dismiss();
-                        })
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                         .show();
             else {
-                JSONObject jsonObject = null;
+                JSONObject jsonObject;
                 try {
                     jsonObject = new JSONObject(result);
                     String token = jsonObject.getString("token");
@@ -82,9 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     new AlertDialog.Builder(this)
                             .setTitle(getString(R.string.login_account))
                             .setMessage(getString(R.string.account_inexistant))
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                             .show();
                 }
             }

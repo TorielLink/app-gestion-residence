@@ -80,11 +80,12 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
             }
             String txtAppliances = "";
             switch (nbAppliances) {
-                case 0: txtAppliances = "Aucun équipement";
+                //TODO: les strings ne fonctionnnent pas visiblement…
+                case 0: txtAppliances = String.valueOf(R.string.no_appliances);
                     break;
-                case 1: txtAppliances = "1 équipement";
+                case 1: txtAppliances = String.valueOf(R.string.one_appliances);
                     break;
-                default: txtAppliances = nbAppliances + " équipements";
+                default: txtAppliances = nbAppliances + String.valueOf(R.string.many_appliances);
             }
             applianceTV.setText(txtAppliances);
         }

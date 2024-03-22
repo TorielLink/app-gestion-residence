@@ -63,7 +63,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         getBundleInfosAndUpdate(headerView);
 
-        setImgUser(headerView);
+        ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
+        setImgUser(imgUser);
+
+        //TODO : passe bien sur le fragment mais ne s'enlève pas de sur le côté
+        imgUser.setOnClickListener(view -> {
+            navController.navigate(R.id.nav_user_account);
+            drawer.closeDrawers();
+        });
     }
 
     private void getBundleInfosAndUpdate(View headerView) {
@@ -87,8 +94,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private static void setImgUser(View headerView) {
-        ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
+    private static void setImgUser(ImageView imgUser) {
         imgUser.setImageResource(R.drawable.user_logo);
     }
 
