@@ -118,5 +118,5 @@
     <string name="notif_slot">Free slot</string>
     <string name="notif_slot_body">A neighbor has freed up one of the slots you wanted</string>
     <string name="one_appliances">1 equipment</string>
-    <string name="many_appliances">equipments</string>
+    <string name="many_appliances">%1$d equipments</string>
 </resources>

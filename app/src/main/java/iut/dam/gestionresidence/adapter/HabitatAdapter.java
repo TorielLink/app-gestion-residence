@@ -1,6 +1,5 @@
 package iut.dam.gestionresidence.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,9 +19,11 @@ import iut.dam.gestionresidence.entities.Habitat;
 import iut.dam.gestionresidence.R;
 
 public class HabitatAdapter extends ArrayAdapter<Habitat> {
+    private Context mContext;
 
     public HabitatAdapter(@NonNull Context context, @NonNull List<Habitat> objects) {
         super(context, 0, objects);
+        this.mContext = context;
     }
 
     @NonNull
@@ -36,7 +37,6 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
         return initView(position, convertView, parent);
     }
 
-    @SuppressLint("SetTextI18n")
     private View initView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_habitat, parent, false);
@@ -80,11 +80,12 @@ public class HabitatAdapter extends ArrayAdapter<Habitat> {
             String txtAppliances;
             switch (nbAppliances) {
                 //TODO: les strings ne fonctionnnent pas visiblement…
-                case 0: txtAppliances = String.valueOf(R.string.no_appliances);
+                case 0: txtAppliances = mContext.getString(R.string.no_appliances);
+
                     break;
-                case 1: txtAppliances = String.valueOf(R.string.one_appliances);
+                case 1: txtAppliances = mContext.getString(R.string.one_appliances);
                     break;
-                default: txtAppliances = nbAppliances + String.valueOf(R.string.many_appliances);
+                default: txtAppliances = mContext.getString(R.string.many_appliances, nbAppliances);
             }
             applianceTV.setText(txtAppliances);
         }

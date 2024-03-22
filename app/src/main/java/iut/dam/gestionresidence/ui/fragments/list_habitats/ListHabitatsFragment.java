@@ -73,7 +73,7 @@ public class ListHabitatsFragment extends Fragment {
                         habitatAppliances.add(new Appliance(applianceId, name, reference, wattage));
                     }
 
-                    habitats.add(new Habitat(habitatId, new User("User n°" + (i+1)), floor, area, habitatAppliances));//TODO get user name
+                    habitats.add(new Habitat(habitatId, new User("User n°" + (i+1)), floor, area, habitatAppliances));
                 }
 
                 HabitatAdapter adapter = new HabitatAdapter(requireContext(), habitats);

@@ -86,7 +86,7 @@
     <string name="notif_slot_body">Un voisin a libéré un des créneaux que vous désiriez</string>
     <string name="no_appliances">Aucun équipement</string>
     <string name="one_appliances">1 équipement</string>
-    <string name="many_appliances">équipements</string>
+    <string name="many_appliances">%1$d équipements</string>
 
     <!-- Auto added values -->
 </resources>

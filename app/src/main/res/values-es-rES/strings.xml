@@ -71,5 +71,5 @@
     <string name="notif_slot_body">Un vecino ha liberado una de las ranuras que querías</string>
     <string name="no_appliances">Sin equipamiento</string>
     <string name="one_appliances">1 equipamiento</string>
-    <string name="many_appliances">equipamiento</string>
+    <string name="many_appliances">%1$d equipamiento</string>
 </resources>

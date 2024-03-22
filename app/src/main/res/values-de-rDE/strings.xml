@@ -68,8 +68,8 @@
     <string name="notif_overrun">Überlaufalarm</string>
     <string name="notif_overrun_body">Überschreitung der Wattleistung für den ausgewählten Steckplatz</string>
     <string name="notif_slot">Freier Steckplatz</string>
-    <string name="notif_slot_body">Ein Nachbar hat einen der von Ihnen gewünschten Plätze frei gemacht</string>
+    <string name="notif_slot_body">Ein nachbar hat einen der von Ihnen gewünschten Plätze frei gemacht</string>
     <string name="no_appliances">Keine Ausrüstung</string>
-    <string name="one_appliances">1 Ausstattung</string>
-    <string name="many_appliances">Ausstattungen</string>
+    <string name="one_appliances">1 ausstattung</string>
+    <string name="many_appliances">%1$d ausstattungen</string>
 </resources>
