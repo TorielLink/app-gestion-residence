@@ -133,10 +133,19 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txt__eco_coin"
+            android:id="@+id/txt_eco_coin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_title_eco_coin"
             android:text="@string/my_eco_coins_text" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_eco_coin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="@string/log_out" />
 </RelativeLayout>

@@ -79,6 +79,7 @@
 
     <!-- User Account -->
     <string name="change_password">Change password</string>
+    <string name="log_out">Log out</string>
 
     <!-- My Habitat -->
     <string name="add_new_habitat">Add a new habitat</string>

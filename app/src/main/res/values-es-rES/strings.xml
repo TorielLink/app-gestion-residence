@@ -73,4 +73,5 @@
     <string name="many_appliances">%1$d equipamiento</string>
     <string name="my_eco_coins">Mis eco-monedas</string>
     <string name="my_eco_coins_text">Actualmente tienes %1$d eco-coins</string>
+    <string name="log_out">Desconexión</string>
 </resources>

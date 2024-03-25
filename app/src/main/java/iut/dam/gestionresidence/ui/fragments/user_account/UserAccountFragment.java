@@ -4,7 +4,9 @@ import static android.content.ContentValues.TAG;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,6 +38,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import iut.dam.gestionresidence.LoginActivity;
 import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.databinding.FragmentUserAccountBinding;
 import iut.dam.gestionresidence.entities.TokenManager;
@@ -116,6 +120,9 @@ public class UserAccountFragment extends Fragment {
         imgUserProfile.setOnClickListener(v -> openGallery(galleryLauncher));
 
         setNbEcoCoins(binding.txtEcoCoin);
+
+        Button btnLogout = view.findViewById(R.id.btn_logout);
+        btnLogout.setOnClickListener(v -> logoutUser());
     }
 
     private void setNbEcoCoins(TextView textViewEcoCoin) {
@@ -246,7 +253,9 @@ public class UserAccountFragment extends Fragment {
             int bufferSize = 1024;
             byte[] buffer = new byte[bufferSize];
             int len;
-            while ((len = inputStream.read(buffer)) != -1) {
+            while (true) {
+                assert inputStream != null;
+                if ((len = inputStream.read(buffer)) == -1) break;
                 byteBuffer.write(buffer, 0, len);
             }
             return byteBuffer.toByteArray();
@@ -254,6 +263,17 @@ public class UserAccountFragment extends Fragment {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private void logoutUser() {
+        SharedPreferences sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", false);
+        editor.apply();
+
+
+        startActivity(new Intent(requireContext(), LoginActivity.class));
+        requireActivity().finish();
     }
 
     @Override
