@@ -76,6 +76,10 @@
     <string name="txt_select_theme">Select your preferred theme</string>
     <string name="notifications">Notifications</string>
     <string name="notif_config">Enable/disable notifications</string>
+    <string name="notif_title">New notification</string>
+    <string name="notif_txt">You have enabled notifications.</string>
+    <string name="notif_channel_name" translatable="false">Name of notification channel</string>
+    <string name="notif_channel_description" translatable="false">Description of notification channel</string>
 
     <!-- User Account -->
     <string name="change_password">Change password</string>

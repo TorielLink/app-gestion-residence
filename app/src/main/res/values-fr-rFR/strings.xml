@@ -89,6 +89,8 @@
     <string name="my_eco_coins">Mon éco-monnaie</string>
     <string name="my_eco_coins_text">Vous avez actuellement %1$d éco-pièces</string>
     <string name="log_out">Se déconnecter</string>
+    <string name="notif_title">Nouvelle notification</string>
+    <string name="notif_txt">Vous avez activé les notifications.</string>
 
     <!-- Auto added values -->
 </resources>

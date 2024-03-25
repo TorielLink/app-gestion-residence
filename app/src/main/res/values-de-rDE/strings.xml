@@ -74,4 +74,6 @@
     <string name="my_eco_coins">Meine Öko-Münzen</string>
     <string name="my_eco_coins_text">Sie haben derzeit %1$d Eco-Coins</string>
     <string name="log_out">Sich ausloggen</string>
+    <string name="notif_title">Neue Benachrichtigung</string>
+    <string name="notif_txt">Sie haben Benachrichtigungen aktiviert.</string>
 </resources>
