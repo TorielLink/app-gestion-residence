@@ -2,6 +2,7 @@ package iut.dam.gestionresidence;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -27,6 +28,7 @@ import com.koushikdutta.ion.Ion;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.Locale;
 
 import iut.dam.gestionresidence.databinding.ActivityMainBinding;
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         getBundleInfosAndUpdate(headerView);
 
         ImageView imgUser = headerView.findViewById(R.id.img_user_profile);
-        setImgUser(imgUser);
+        setImgUser(imgUser, getApplicationContext());
 
         imgUser.setOnClickListener(view -> {
             navController.navigate(R.id.nav_user_account);
@@ -93,7 +95,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private void setImgUser(ImageView imgUser) {
+    private void setImgUser(ImageView imgUser, Context context) {
+        trimCache(context);
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getProfilePicture.php?token="+TokenManager.getToken();
         Ion.with(this)
                 .load(urlString)
@@ -182,4 +185,30 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             textView.setText(username);
         });
     }
+    public static void trimCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+
+        // The directory is now empty so delete it
+        return dir.delete();
+    }
+
 }
