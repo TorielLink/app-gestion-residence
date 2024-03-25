@@ -30,12 +30,9 @@ import java.util.Random;
 
 import iut.dam.gestionresidence.R;
 import iut.dam.gestionresidence.adapter.HabitatAdapter;
-import iut.dam.gestionresidence.adapter.WeekAdapter;
 import iut.dam.gestionresidence.databinding.FragmentListHabitatsBinding;
 import iut.dam.gestionresidence.entities.Appliance;
-import iut.dam.gestionresidence.entities.Day;
 import iut.dam.gestionresidence.entities.Habitat;
-import iut.dam.gestionresidence.entities.Slot;
 import iut.dam.gestionresidence.entities.TokenManager;
 import iut.dam.gestionresidence.entities.User;
 
@@ -48,14 +45,6 @@ public class ListHabitatsFragment extends Fragment {
 
         binding = FragmentListHabitatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        RecyclerView recyclerView = binding.recyclerView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-        List<Day> days = generateDummyData();
-
-        WeekAdapter weekAdapter = new WeekAdapter(days);
-        recyclerView.setAdapter(weekAdapter);
 
         ListView list = binding.listHabitats;
         TextView tvTotalWattage = binding.txtTotalWattage;
@@ -140,32 +129,6 @@ public class ListHabitatsFragment extends Fragment {
                 }
             }
         });
-    }
-
-    private List<Day> generateDummyData() {
-        List<Day> days = new ArrayList<>();
-
-        // Générez des données factices pour chaque jour de la semaine
-        // Pour chaque jour, générez des créneaux avec des niveaux de consommation
-        // Utilisez ces données pour créer des objets Day et les ajouter à la liste 'days'
-
-        // Exemple de génération de données factices
-        for (int i = 0; i < 7; i++) {
-            List<Slot> slots = new ArrayList<>();
-            for (int j = 0; j < 24; j++) {
-                // Générez des niveaux de consommation factices pour chaque créneau
-                int consumptionLevel = generateRandomConsumptionLevel();
-                slots.add(new Slot(consumptionLevel));
-            }
-            days.add(new Day(slots));
-        }
-
-        return days;
-    }
-
-    private int generateRandomConsumptionLevel() {
-        Random random = new Random();
-        return random.nextInt(101);
     }
 
     @Override
