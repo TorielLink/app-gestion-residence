@@ -57,9 +57,9 @@ public class UserAccountFragment extends Fragment {
         EditText editTextLastName = binding.editTextLastName;
         EditText editTextPassword = binding.editTextPassword;
 
-        binding.btnConfirmChanges.setOnClickListener(v -> {
-            btnConfirmChangesClicked(editTextFirstName, editTextLastName, editTextPassword, checkBoxFirstName, checkBoxLastName, checkBoxPassword);
-        });
+        binding.btnConfirmChanges.setOnClickListener(v ->
+                btnConfirmChangesClicked(editTextFirstName, editTextLastName, editTextPassword,
+                        checkBoxFirstName, checkBoxLastName, checkBoxPassword));
 
         checkBoxFirstName.setOnCheckedChangeListener((buttonView, isChecked) ->
                 editTextFirstName.setEnabled(isChecked));
@@ -90,10 +90,12 @@ public class UserAccountFragment extends Fragment {
 
         TextView textViewEcoCoin = binding.txtEcoCoin;
 
-        textViewEcoCoin.setText(getString(R.string.my_eco_coins_text, 5));//TODO nb eco coins
+        textViewEcoCoin.setText(getString(R.string.my_eco_coins_text, 5)); //TODO nb eco coins
     }
 
-    private void btnConfirmChangesClicked(EditText editTextFirstName, EditText editTextLastName, EditText editTextPassword, CheckBox checkBoxFirstName, CheckBox checkBoxLastName, CheckBox checkBoxPassword) {
+    private void btnConfirmChangesClicked(EditText editTextFirstName, EditText editTextLastName,
+                                          EditText editTextPassword, CheckBox checkBoxFirstName,
+                                          CheckBox checkBoxLastName, CheckBox checkBoxPassword) {
         String firstName = String.valueOf(editTextFirstName.getText());
         String lastName = String.valueOf(editTextLastName.getText());
         String password = String.valueOf(editTextPassword.getText());
@@ -107,8 +109,8 @@ public class UserAccountFragment extends Fragment {
 
         String urlStringUserModif =
                 "http://remi-lem.alwaysdata.net/gestionResidence/changeUserParameters.php?token="
-                        + TokenManager.getToken() + "&firstname=" + firstName + "&lastname=" + lastName
-                        + "&password=" + password;
+                        + TokenManager.getToken() + "&firstname=" + firstName + "&lastname=" +
+                        lastName + "&password=" + password;
 
         Ion.with(this).load(urlStringUserModif).asString().setCallback((e, result) -> {
             if(result == null)
