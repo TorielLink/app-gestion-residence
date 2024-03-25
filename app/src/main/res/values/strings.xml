@@ -26,7 +26,7 @@
     <string name="bad_syntax">Bad syntax</string>
     <string name="wrong_credentials">Invalid credentials</string>
     <string name="default_client_id" translatable="false">
-        YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+        977541770713-adm53ou4uh2g27ocv95iua2q66u9gp0s.apps.googleusercontent.com</string>
 
     <!-- Register -->
     <string name="register_new">Register an account</string>

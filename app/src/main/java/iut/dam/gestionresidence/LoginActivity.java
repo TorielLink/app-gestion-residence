@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK) {
+                        //TODO ? : Peut-être à changer, ce ne doit pas être là que c'est traité
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
@@ -123,6 +124,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
+            Log.d(TAG, "onActivityResult: Google Sign-In result received");
+            // ^ TODO : pour voir si ça passe et non, ça ne passe pas dedans
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
@@ -134,7 +137,8 @@ public class LoginActivity extends AppCompatActivity {
             // Connexion réussie, vous pouvez utiliser les informations sur le compte ici
             String idToken = account.getIdToken();
             // Vous pouvez envoyer cet ID Token au serveur pour l'authentification du backend
-
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         } catch (ApiException e) {
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
         }
