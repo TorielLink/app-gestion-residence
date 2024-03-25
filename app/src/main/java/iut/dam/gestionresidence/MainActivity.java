@@ -246,13 +246,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
     }
     public static void trimCache(Context context) {
-        try {
-            File dir = context.getCacheDir();
-            if (dir != null && dir.isDirectory()) {
-                deleteDir(dir);
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
+        File dir = context.getCacheDir();
+        if (dir != null && dir.isDirectory()) {
+            deleteDir(dir);
         }
     }
 
