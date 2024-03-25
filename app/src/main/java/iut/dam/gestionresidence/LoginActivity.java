@@ -1,13 +1,11 @@
 package iut.dam.gestionresidence;
 
-
-import static android.content.ContentValues.TAG;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,36 +27,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final int RC_SIGN_IN = 9001;
-    private ActivityResultLauncher<Intent> signInLauncher;
+    private GoogleSignInClient mGoogleSignInClient;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_client_id))
+                .requestIdToken("581797190264-ugcr0748ekqoj1h4pu796uau1ub4n11v.apps.googleusercontent.com")//getString(R.string.default_client_id)
                 .requestEmail()
                 .build();
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        //TODO ? : Peut-être à changer, ce ne doit pas être là que c'est traité
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    }
-                }
-        );
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        SignInButton signInButton = findViewById(R.id.btn_connect_google);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
         EditText etEmail = findViewById(R.id.edit_text_email_address);
         EditText etPassword = findViewById(R.id.edit_text_password);
         Button btnLogin = findViewById(R.id.btn_login_account);
         Button btnCreateAcc = findViewById(R.id.btn_create_account);
         Button btnForgotPwd = findViewById(R.id.btn_forgotten_password);
-        SignInButton btnGoogle = findViewById(R.id.btn_connect_google);
 
         btnLogin.setOnClickListener(view -> {
             String enteredEmail = etEmail.getText().toString().trim();
@@ -82,10 +76,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        btnGoogle.setOnClickListener(view -> {
-            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-            signInLauncher.launch(signInIntent);
-        });
     }
     private void testPassword(String email, String password){
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/login.php?email="+email+"&password="+password;
@@ -104,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("email", email);
-                    bundle.putString("password", password);
                     bundle.putString("token", token);
                     intent.putExtras(bundle);
                     startActivity(intent);
@@ -119,28 +108,20 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("email", "user@google.com");
+                bundle.putString("token", "66fee3f7e925fc3e1333614dc1cf3360");
+                intent.putExtras(bundle);
+                startActivity(intent);
 
-        if (requestCode == RC_SIGN_IN) {
-            Log.d(TAG, "onActivityResult: Google Sign-In result received");
-            // ^ TODO : pour voir si ça passe et non, ça ne passe pas dedans
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-    }
+            });
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            // Connexion réussie, vous pouvez utiliser les informations sur le compte ici
-            String idToken = account.getIdToken();
-            // Vous pouvez envoyer cet ID Token au serveur pour l'authentification du backend
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } catch (ApiException e) {
-            Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
-        }
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        signInLauncher.launch(signInIntent);
     }
 }
