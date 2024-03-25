@@ -93,8 +93,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private static void setImgUser(ImageView imgUser) {
-        imgUser.setImageResource(R.drawable.user_logo);
+    private void setImgUser(ImageView imgUser) {
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getProfilePicture.php?token="+TokenManager.getToken();
+        Ion.with(this)
+                .load(urlString)
+                .asBitmap()
+                .setCallback((e, bitmap) -> {
+                    if (e == null && bitmap != null) {
+                        imgUser.setImageBitmap(bitmap);
+                    } else {
+                        imgUser.setImageResource(R.drawable.user_logo);
+                    }
+                });
     }
 
     @Override
