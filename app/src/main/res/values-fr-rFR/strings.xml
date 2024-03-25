@@ -18,7 +18,6 @@
     <string name="login_account">Se connecter</string>
     <string name="user_account">Compte utilisateur</string>
     <string name="lost_password">J\'ai oublié mon mot de passe</string>
-    <string name="connect_google">Se connecter avec Google</string>
     <string name="bad_syntax">Mauvaise syntaxe</string>
     <string name="wrong_credentials">Mauvais identifiants</string>
 

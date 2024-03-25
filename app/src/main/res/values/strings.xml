@@ -14,6 +14,7 @@
     <string name="menu_my_notifications">My notifications</string>
     <string name="menu_my_preferences">My preferences</string>
 
+    <!-- Log In -->
     <string name="connect_page">Connexion page</string>
     <string name="password">Password</string>
     <string name="email" translatable="false">Email</string>
@@ -22,9 +23,10 @@
     <string name="sign_account">Sign Up</string>
     <string name="login_account">Log In</string>
     <string name="lost_password">I forgot my password</string>
-    <string name="connect_google">Connect with Google</string>
     <string name="bad_syntax">Bad syntax</string>
     <string name="wrong_credentials">Invalid credentials</string>
+    <string name="default_client_id" translatable="false">
+        YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
 
     <!-- Register -->
     <string name="register_new">Register an account</string>

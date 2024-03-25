@@ -16,7 +16,6 @@
     <string name="sign_account">Registrieren</string>
     <string name="login_account">Einloggen</string>
     <string name="lost_password">Ich habe mein Passwort vergessen</string>
-    <string name="connect_google">Mit Google verbinden</string>
     <string name="bad_syntax">Falsche Syntax</string>
     <string name="wrong_credentials">Ungültige Berechtigungsnachweise</string>
     <string name="register_new">Ein Konto registrieren</string>

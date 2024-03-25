@@ -16,7 +16,6 @@
     <string name="sign_account">Crear una cuenta</string>
     <string name="login_account">Conectarse</string>
     <string name="lost_password">Olvide mi contraseña</string>
-    <string name="connect_google">Conectarse con Google</string>
     <string name="bad_syntax">Mala sintaxis</string>
     <string name="wrong_credentials">Mal identificador</string>
     <string name="register_new">Registre una nueva cuenta</string>

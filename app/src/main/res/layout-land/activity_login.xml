@@ -91,13 +91,11 @@
         android:layout_centerHorizontal="true"
         android:text="@string/lost_password" />
 
-    <Button
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_connect_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/btn_forgotten_password"
-        android:layout_centerHorizontal="true"
-        android:layout_toEndOf="@id/btn_forgotten_password"
-        android:text="@string/connect_google"
-        android:visibility="gone" />
+        android:layout_below="@id/btn_forgotten_password"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
