@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,7 +24,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import iut.dam.gestionresidence.R;
@@ -33,9 +37,6 @@ import iut.dam.gestionresidence.entities.TokenManager;
 
 public class ReservationFragment extends Fragment {
     private final List<Appliance> appliances = new ArrayList<>();
-    private static final double DAILY_ENERGY_THRESHOLD = 1000; // TODO : get max wattage form DB
-
-    public ReservationFragment() {}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +45,44 @@ public class ReservationFragment extends Fragment {
         View root = binding.getRoot();
 
         Spinner spinnerAppliances = binding.spinnerAppliances;
+        populateSpinnerAppliances(spinnerAppliances);
+
+        Spinner spinnerTimeSlot = binding.spinnerTimeSlot;
+        populateSpinnerTimeSlot(spinnerTimeSlot);
+
+        DatePicker datePicker = binding.datePickerSelectDate;
+
+        Button btnReserve = binding.btnReserve;
+        btnReserve.setOnClickListener(v -> confirmReservation(datePicker, spinnerTimeSlot));
+
+        return root;
+    }
+
+    private void populateSpinnerTimeSlot(Spinner spinnerTimeSlot) {
+        String[] timeSlotOptions = {"0h-1h", "1h-2h", "2h-3h", "3h-4h", "4h-5h", "5h-6h", "6h-7h"
+                , "7h-8h", "8h-9h", "9h-10h", "10h-11h", "11h-12h", "12h-13h", "13h-14h", "14h-15h"
+                , "15h-16h", "16h-17h", "17h-18h", "18h-19h", "19h-10h", "20h-21h", "21h-22h"
+                , "22h-23h", "23h-0h"};
+        ArrayAdapter<?> timeSlotAdapter = new ArrayAdapter<>(requireContext(),
+                android.R.layout.simple_spinner_item, timeSlotOptions);
+
+        spinnerTimeSlot.setAdapter(timeSlotAdapter);
+        spinnerTimeSlot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedOption = (String) timeSlotAdapter.getItem(position);
+                Toast.makeText(requireContext(), "Item: " + selectedOption,
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void populateSpinnerAppliances(Spinner spinnerAppliances) {
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getAppliances.php?token="
                 + TokenManager.getToken();
 
@@ -88,48 +127,43 @@ public class ReservationFragment extends Fragment {
                         .show();
             }
         });
-
-        Spinner spinnerTimeSlot = binding.spinnerTimeSlot;
-
-        String[] timeSlotOptions = {"0h-1h", "1h-2h", "2h-3h", "3h-4h", "4h-5h", "5h-6h", "6h-7h"
-                , "7h-8h", "8h-9h", "9h-10h", "10h-11h", "11h-12h", "12h-13h", "13h-14h", "14h-15h"
-                , "15h-16h", "16h-17h", "17h-18h", "18h-19h", "19h-10h", "20h-21h", "21h-22h"
-                , "22h-23h", "23h-0h"};
-        ArrayAdapter<?> timeSlotAdapter = new ArrayAdapter<>(requireContext(),
-                android.R.layout.simple_spinner_item, timeSlotOptions);
-
-        spinnerTimeSlot.setAdapter(timeSlotAdapter);
-        spinnerTimeSlot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedOption = (String) timeSlotAdapter.getItem(position);
-                Toast.makeText(requireContext(), "Item: " + selectedOption,
-                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        Button btnReserve = binding.btnReserve;
-
-        btnReserve.setOnClickListener(v -> confirmReservation());
-
-        return root;
     }
 
-    private void confirmReservation() {
+    private void confirmReservation(DatePicker datePicker, Spinner spinnerHours) {
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getTimeSlot.php?token="
+                + TokenManager.getToken();
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            confirmReservation(result, datePicker, spinnerHours);
+        });
+    }
+
+    private void confirmReservation(String serverData, DatePicker datePicker, Spinner spinnerHours) {
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getTimeSlot.php?token="
+                + TokenManager.getToken();
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            String selectedDate = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
+            String selectedTime = spinnerHours.getSelectedItem().toString();
+            int slotId = getSlotId(serverData, selectedDate, selectedTime);
+            if (slotId != -1) {
+                confirmReservation(slotId);
+            } else {
+                //TODO ajout de creneau
+                confirmReservation(slotId);
+            }
+        });
+    }
+
+    private void confirmReservation(int slotId) {
+        int maxWattage = 0;//TODO
         double totalConsumption = calculateTotalConsumption(); // TODO : rajouter la consommation du créneau
 
-        if (totalConsumption > DAILY_ENERGY_THRESHOLD) {
+        if (totalConsumption > maxWattage) {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle(getString(R.string.txt_confirm_reservation));
             builder.setMessage(getString(R.string.txt_consumption_exceeds));
             builder.setPositiveButton(getString(R.string.yes), (dialog, which) -> {
                 actuateCoins(-5);
-                storeReservationInDatabase();
+                storeReservationInDatabase(slotId);
                 Toast.makeText(requireContext(), getString(R.string.txt_reservation_is_confirm),
                         Toast.LENGTH_SHORT).show();
                 getParentFragmentManager().popBackStack();
@@ -142,7 +176,7 @@ public class ReservationFragment extends Fragment {
             });
             builder.show();
         } else {
-            storeReservationInDatabase();
+            storeReservationInDatabase(slotId);
             Toast.makeText(requireContext(), getString(R.string.txt_reservation_is_confirm), Toast.LENGTH_SHORT).show();
             getParentFragmentManager().popBackStack();
         }
@@ -175,7 +209,29 @@ public class ReservationFragment extends Fragment {
         });
     }
 
-    private void storeReservationInDatabase() {
+    private int getSlotId(String serverData, String selectedDate, String selectedTime) {
+        try {
+            JSONArray jsonArray = new JSONArray(serverData);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date selectedDateTime = dateFormat.parse(selectedDate + " " + selectedTime + ":00");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String begin = jsonObject.getString("begin");
+                String end = jsonObject.getString("end");
+                Date beginDate = dateFormat.parse(begin);
+                Date endDate = dateFormat.parse(end);
+                if (selectedDateTime.after(beginDate) && selectedDateTime.before(endDate)) {
+                    return Integer.parseInt(jsonObject.getString("id"));
+                }
+            }
+        } catch (JSONException | ParseException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    private void storeReservationInDatabase(int slotId) {
+        String token = TokenManager.getToken();
         //TODO: faire le stockage dans la base
     }
 }

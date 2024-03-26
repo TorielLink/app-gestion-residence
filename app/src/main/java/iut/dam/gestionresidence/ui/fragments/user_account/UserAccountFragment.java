@@ -139,7 +139,6 @@ public class UserAccountFragment extends Fragment {
             }
             textViewEcoCoin.setText(getString(R.string.my_eco_coins_text, nb_coins));
         });
-
     }
 
     private void btnConfirmChangesClicked(EditText editTextFirstName, EditText editTextLastName,
