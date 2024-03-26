@@ -37,7 +37,6 @@ import iut.dam.gestionresidence.entities.TokenManager;
 
 public class ReservationFragment extends Fragment {
     private final List<Appliance> appliances = new ArrayList<>();
-
     private int order = 0;
 
     @Override
@@ -73,7 +72,7 @@ public class ReservationFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedOption = (String) timeSlotAdapter.getItem(position);
-                Toast.makeText(requireContext(), "Item: " + selectedOption,
+                Toast.makeText(requireContext(), selectedOption,
                         Toast.LENGTH_SHORT).show();
             }
 
@@ -91,18 +90,27 @@ public class ReservationFragment extends Fragment {
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             try {
                 JSONArray jsonArray = new JSONArray(result);
-                List<String> appliancesNames = new ArrayList<>();
+                List<Appliance> appliancesList = new ArrayList<>();
 
-                appliancesNames.add("None");
+                appliancesList.add(new Appliance(-1, "None", "", 0));
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    int id = jsonObject.getInt("id");
                     String name = jsonObject.getString("name");
-                    appliancesNames.add(name);
+                    String ref = jsonObject.getString("reference");
+                    int wattage = jsonObject.getInt("wattage");
+                    appliancesList.add(new Appliance(id, name, ref, wattage));
+                }
+
+                List<String> appliancesListName = new ArrayList<>();
+                for (Appliance appliance :
+                        appliancesList) {
+                    appliancesListName.add(appliance.getName());
                 }
 
                 ArrayAdapter<String> appliancesAdapter = new ArrayAdapter<>(requireContext(),
-                        android.R.layout.simple_spinner_item, appliancesNames);
+                        android.R.layout.simple_spinner_item, appliancesListName);
 
                 appliancesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerAppliances.setAdapter(appliancesAdapter);
@@ -110,11 +118,12 @@ public class ReservationFragment extends Fragment {
                 spinnerAppliances.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String selectedOption = appliancesAdapter.getItem(position);
-                        assert selectedOption != null;
-                        if (!selectedOption.equals("None")) {
-                            Toast.makeText(requireContext(), "Selected Appliance: " + selectedOption,
-                                    Toast.LENGTH_SHORT).show();
+                        String selectedApplianceName = appliancesAdapter.getItem(position);
+                        if (selectedApplianceName != null && !selectedApplianceName.equals("None")) {
+                            Appliance selectedAppliance = findApplianceByName(appliancesList, selectedApplianceName);
+                            if (selectedAppliance != null) {
+                                appliances.add(selectedAppliance);
+                            }
                         }
                     }
 
@@ -129,6 +138,15 @@ public class ReservationFragment extends Fragment {
                         .show();
             }
         });
+    }
+
+    private Appliance findApplianceByName(List<Appliance> appliances, String name) {
+        for (Appliance appliance : appliances) {
+            if (appliance.getName().equals(name)) {
+                return appliance;
+            }
+        }
+        return null;
     }
 
     private void confirmReservation(DatePicker datePicker, Spinner spinnerHours) {
@@ -171,7 +189,6 @@ public class ReservationFragment extends Fragment {
             });
             builder.setNegativeButton(getString(R.string.no), (dialog, which) -> {
                 actuateCoins(10);
-                appliances.clear();
                 Toast.makeText(requireContext(), getString(R.string.txt_reservation_is_cancelled),
                         Toast.LENGTH_SHORT).show();
             });
@@ -211,7 +228,6 @@ public class ReservationFragment extends Fragment {
 
         return consumption[0];
     }
-
 
     private void actuateCoins(int coins) {
         String urlString =
