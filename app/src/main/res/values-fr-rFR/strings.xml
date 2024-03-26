@@ -11,6 +11,7 @@
     <string name="menu_my_notifications">Mes notifications</string>
     <string name="menu_my_preferences">Mes préférences</string>
 
+    <string name="menu_reservation">Réservation</string>
     <string name="connect_page">Page de connexion</string>
     <string name="password">Mot de passe</string>
     <string name="flag">Drapeau</string>
@@ -91,6 +92,7 @@
     <string name="log_out">Se déconnecter</string>
     <string name="notif_title">Nouvelle notification</string>
     <string name="notif_txt">Vous avez activé les notifications.</string>
+    <string name="reserve_time_slot">Réserver un créneau</string>
 
     <!-- Auto added values -->
 </resources>

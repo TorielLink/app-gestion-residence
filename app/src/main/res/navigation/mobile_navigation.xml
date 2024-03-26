@@ -33,4 +33,10 @@
         android:id="@+id/nav_my_preferences"
         android:name="iut.dam.gestionresidence.ui.fragments.my_preferences.MyPreferencesFragment"
         android:label="@string/menu_my_preferences" />
+
+    <fragment
+        android:id="@+id/nav_reservation"
+        android:name="iut.dam.gestionresidence.ui.fragments.list_habitats.ReservationFragment"
+        android:label="@string/menu_reservation"
+        tools:layout="@layout/fragment_reservation" />
 </navigation>

@@ -9,6 +9,7 @@
     <string name="menu_list_habitats">Liste der Habitate</string>
     <string name="menu_my_notifications">Meine Benachrichtigungen</string>
     <string name="menu_my_preferences">Meine Vorlieben</string>
+    <string name="menu_reservation">Reservierung</string>
     <string name="connect_page">Seite Verbindung</string>
     <string name="password">Passwort</string>
     <string name="user_account">Benutzerkonto</string>
@@ -76,4 +77,5 @@
     <string name="log_out">Sich ausloggen</string>
     <string name="notif_title">Neue Benachrichtigung</string>
     <string name="notif_txt">Sie haben Benachrichtigungen aktiviert.</string>
+    <string name="reserve_time_slot">Einen Slot reservieren</string>
 </resources>

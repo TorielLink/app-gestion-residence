@@ -2,6 +2,7 @@ package iut.dam.gestionresidence.ui.fragments.list_habitats;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,6 +45,7 @@ public class ListHabitatsFragment extends Fragment {
 
     private FragmentListHabitatsBinding binding;
 
+    @SuppressLint("ResourceType")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -101,6 +107,15 @@ public class ListHabitatsFragment extends Fragment {
         EditText editTextIdHabitatRemove = binding.editTextIdHabitatRemove;
 
         btnHabitatRemove.setOnClickListener(view -> clickBtnHabitatRemove(editTextIdHabitatRemove));
+
+        Button btnReserveTimeSlot = binding.btnReserveTimeSlot;
+
+        btnReserveTimeSlot.setOnClickListener(view -> {
+            NavController navController = Navigation.findNavController(requireActivity(),
+                    R.id.nav_host_fragment_content_main);
+
+            navController.navigate(R.id.nav_reservation);
+        });
 
         return root;
     }

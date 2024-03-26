@@ -9,6 +9,7 @@
     <string name="menu_list_habitats">Lista de hábitats</string>
     <string name="menu_my_notifications">Mis notificationes</string>
     <string name="menu_my_preferences">Mis preferencias</string>
+    <string name="menu_reservation">Reserva</string>
     <string name="connect_page">Página de connexion</string>
     <string name="password">Contraseña</string>
     <string name="user_account">Cuenta de usuario</string>
@@ -76,4 +77,5 @@
     <string name="log_out">Desconexión</string>
     <string name="notif_title">Nueva notificación</string>
     <string name="notif_txt">Has activado las notificaciones.</string>
+    <string name="reserve_time_slot">Reservar una plaza</string>
 </resources>

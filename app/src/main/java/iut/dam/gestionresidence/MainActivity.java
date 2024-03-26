@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void setImgUser(ImageView imgUser, Context context) {
         trimCache(context);
-        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getProfilePicture.php?token="+TokenManager.getToken();
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getProfilePicture.php?token="
+                + TokenManager.getToken();
         Ion.with(this)
                 .load(urlString)
                 .asBitmap()
