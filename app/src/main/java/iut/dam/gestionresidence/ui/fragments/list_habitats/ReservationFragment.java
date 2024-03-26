@@ -235,15 +235,16 @@ public class ReservationFragment extends Fragment {
         try {
             JSONArray jsonArray = new JSONArray(serverData);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date selectedDateTime = dateFormat.parse(selectedDate + " " + selectedTime + ":00");
+            String hour = selectedTime.split("h")[0];
+            Date selectedDateTime = dateFormat.parse(selectedDate + " " + hour + ":00:00");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String begin = jsonObject.getString("begin");
                 String end = jsonObject.getString("end");
                 Date beginDate = dateFormat.parse(begin);
-                Date endDate = dateFormat.parse(end);
+                Date endDate = dateFormat.parse(end);//TODO not used
                 assert selectedDateTime != null;
-                if (selectedDateTime.after(beginDate) && selectedDateTime.before(endDate)) {
+                if (selectedDateTime.equals(beginDate)) {
                     result[0] = Integer.parseInt(jsonObject.getString("id"));
                     result[1] = Integer.parseInt(jsonObject.getString("max_wattage"));
                     return result;
@@ -252,7 +253,7 @@ public class ReservationFragment extends Fragment {
         } catch (JSONException | ParseException e) {
             e.printStackTrace();
         }
-        return new int[]{-1};
+        return new int[]{-1,-1};
     }
 
     private void storeReservationInDatabase(int slotId) {
