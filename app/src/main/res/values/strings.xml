@@ -111,6 +111,14 @@
 
     <!-- Reservaion Fragment -->
     <string name="reserve_time_slot">Reserve a time slot</string>
+    <string name="txt_confirm_reservation">Confirm reservation</string>
+    <string name="txt_consumption_exceeds">Total consumption exceeds daily threshold. Do you want to continue?</string>
+    <string name="txt_reservation_is_confirm">Reservation confirmed!</string>
+    <string name="txt_reservation_is_cancelled">Reservation cancelled.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="success_change_coins">Your eco-coins balance has changed!</string>
+    <string name="error_change_coins">There was a problem changing your eco-coins balance.</string>
 
     <!-- Auto added values -->
     <string name="network_error">A network error occurred</string>

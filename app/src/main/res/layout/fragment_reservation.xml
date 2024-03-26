@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!-- TODO: Spinner pour l'horaire -->
+    <Spinner
+        android:id="@+id/spinner_time_slot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <Spinner
         android:id="@+id/spinner_appliances"
@@ -21,6 +24,6 @@
         android:id="@+id/btn_reserve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Réserver un créneau horaire" />
+        android:text="@string/txt_confirm_reservation" />
 
 </LinearLayout>

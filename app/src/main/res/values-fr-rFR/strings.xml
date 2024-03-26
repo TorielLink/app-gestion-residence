@@ -93,6 +93,14 @@
     <string name="notif_title">Nouvelle notification</string>
     <string name="notif_txt">Vous avez activé les notifications.</string>
     <string name="reserve_time_slot">Réserver un créneau</string>
+    <string name="success_change_coins">Votre solde éco-coins a été modifié !</string>
+    <string name="txt_confirm_reservation">Confirmer la réservation</string>
+    <string name="txt_consumption_exceeds">La consommation totale dépasse le seuil quotidien. Voulez-vous continuer ?</string>
+    <string name="txt_reservation_is_confirm">Réservation confirmée !</string>
+    <string name="txt_reservation_is_cancelled">Réservation annulée.</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="error_change_coins">Il a eu un problème avec le changement de votre solde d\'éco-coins.</string>
 
     <!-- Auto added values -->
 </resources>

@@ -78,4 +78,12 @@
     <string name="notif_title">Nueva notificación</string>
     <string name="notif_txt">Has activado las notificaciones.</string>
     <string name="reserve_time_slot">Reservar una plaza</string>
+    <string name="success_change_coins">¡Tu saldo de eco-coins ha cambiado!</string>
+    <string name="txt_confirm_reservation">Confirmar reserva</string>
+    <string name="txt_consumption_exceeds">El consumo total supera el umbral diario. ¿Desea continuar?</string>
+    <string name="txt_reservation_is_confirm">¡Reserva confirmada!</string>
+    <string name="txt_reservation_is_cancelled">Reserva anulada.</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="error_change_coins">Ha habido un problema con el cambio de tu saldo de eco-coins.</string>
 </resources>

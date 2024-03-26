@@ -78,4 +78,12 @@
     <string name="notif_title">Neue Benachrichtigung</string>
     <string name="notif_txt">Sie haben Benachrichtigungen aktiviert.</string>
     <string name="reserve_time_slot">Einen Slot reservieren</string>
+    <string name="success_change_coins">Ihre Ökomünzenbilanz hat sich geändert!</string>
+    <string name="txt_confirm_reservation">Bestätigung der Reservierung</string>
+    <string name="txt_consumption_exceeds">Der Gesamtverbrauch überschreitet den Tagesgrenzwert. Möchten Sie fortfahren?</string>
+    <string name="txt_reservation_is_confirm">Reservierung bestätigt!</string>
+    <string name="txt_reservation_is_cancelled">Reservierung storniert.</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="error_change_coins">Es gab ein Problem mit der Änderung Ihrer Öko-Münzen-Bilanz.</string>
 </resources>
