@@ -132,9 +132,7 @@ public class ReservationFragment extends Fragment {
     private void confirmReservation(DatePicker datePicker, Spinner spinnerHours) {
         String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getTimeSlot.php?token="
                 + TokenManager.getToken();
-        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
-            confirmReservation(result, datePicker, spinnerHours);
-        });
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> confirmReservation(result, datePicker, spinnerHours));
     }
 
     private void confirmReservation(String serverData, DatePicker datePicker, Spinner spinnerHours) {
@@ -143,21 +141,22 @@ public class ReservationFragment extends Fragment {
         Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
             String selectedDate = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
             String selectedTime = spinnerHours.getSelectedItem().toString();
-            int slotId = getSlotId(serverData, selectedDate, selectedTime);
+            int[] slotInfo = getSlotIdNMaxWatt(serverData, selectedDate, selectedTime);
+            int slotId = slotInfo[0];
+            int maxWattage = slotInfo[1];
             if (slotId != -1) {
-                confirmReservation(slotId);
+                confirmReservation(slotId, maxWattage);
             } else {
-                //TODO ajout de creneau
-                confirmReservation(slotId);
+                confirmReservation(slotId, maxWattage);
             }
         });
     }
 
-    private void confirmReservation(int slotId) {
-        int maxWattage = 0;//TODO
-        double totalConsumption = calculateTotalConsumption(); // TODO : rajouter la consommation du créneau
+    private void confirmReservation(int slotId, int slotMaxWattage) {
+        double totalConsumption = calculateTotalConsumption() +
+                calculateAlreadyBookedConsumption(slotId);
 
-        if (totalConsumption > maxWattage) {
+        if (totalConsumption > slotMaxWattage) {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle(getString(R.string.txt_confirm_reservation));
             builder.setMessage(getString(R.string.txt_consumption_exceeds));
@@ -183,12 +182,34 @@ public class ReservationFragment extends Fragment {
     }
 
     private double calculateTotalConsumption() {
-        double totalConsumption = 3000.0;
+        double totalConsumption = 0.0;
         for (Appliance appliance : appliances) {
             totalConsumption += appliance.getWattage();
         }
         return totalConsumption;
     }
+
+    private double calculateAlreadyBookedConsumption(int slotId) {
+        double[] consumption = {0.0};
+
+        String urlString = "http://remi-lem.alwaysdata.net/gestionResidence/getAppliancesInTimeSlot.php?slotId=" + slotId;
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            try {
+                JSONArray jsonArray = new JSONArray(result);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    double wattage = jsonObject.getDouble("wattage");
+                    consumption[0] += wattage;
+                }
+            } catch (JSONException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        return consumption[0];
+    }
+
 
     private void actuateCoins(int coins) {
         String urlString =
@@ -209,7 +230,8 @@ public class ReservationFragment extends Fragment {
         });
     }
 
-    private int getSlotId(String serverData, String selectedDate, String selectedTime) {
+    private int[] getSlotIdNMaxWatt(String serverData, String selectedDate, String selectedTime) {
+        int[] result = new int[2];
         try {
             JSONArray jsonArray = new JSONArray(serverData);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -220,14 +242,17 @@ public class ReservationFragment extends Fragment {
                 String end = jsonObject.getString("end");
                 Date beginDate = dateFormat.parse(begin);
                 Date endDate = dateFormat.parse(end);
+                assert selectedDateTime != null;
                 if (selectedDateTime.after(beginDate) && selectedDateTime.before(endDate)) {
-                    return Integer.parseInt(jsonObject.getString("id"));
+                    result[0] = Integer.parseInt(jsonObject.getString("id"));
+                    result[1] = Integer.parseInt(jsonObject.getString("max_wattage"));
+                    return result;
                 }
             }
         } catch (JSONException | ParseException e) {
             e.printStackTrace();
         }
-        return -1;
+        return new int[]{-1};
     }
 
     private void storeReservationInDatabase(int slotId) {
