@@ -38,6 +38,8 @@ import iut.dam.gestionresidence.entities.TokenManager;
 public class ReservationFragment extends Fragment {
     private final List<Appliance> appliances = new ArrayList<>();
 
+    private int order = 0;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentReservationBinding binding = FragmentReservationBinding.inflate(inflater, container,
@@ -240,9 +242,7 @@ public class ReservationFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String begin = jsonObject.getString("begin");
-                String end = jsonObject.getString("end");
                 Date beginDate = dateFormat.parse(begin);
-                Date endDate = dateFormat.parse(end);//TODO not used
                 assert selectedDateTime != null;
                 if (selectedDateTime.equals(beginDate)) {
                     result[0] = Integer.parseInt(jsonObject.getString("id"));
@@ -257,7 +257,15 @@ public class ReservationFragment extends Fragment {
     }
 
     private void storeReservationInDatabase(int slotId) {
-        String token = TokenManager.getToken();
-        //TODO: faire le stockage dans la base
+        String urlString =
+                "http://remi-lem.alwaysdata.net/gestionResidence/postBookedTimeSlot.php?token="
+                        + TokenManager.getToken() + "&appliance_id=" + appliances.get(0).getId()
+                        + "&time_slot_id=" + slotId + "&order=" + order;
+
+        Ion.with(this).load(urlString).asString().setCallback((e, result) -> {
+            if(result == null)
+                Log.d(TAG, "No response from the server!!!");
+        });
+        ++order;
     }
 }
